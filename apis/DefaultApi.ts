@@ -11,6 +11,7 @@ import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
+import { InlineResponse2003 } from '../models/InlineResponse2003';
 
 /**
  * no description
@@ -537,18 +538,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to keysKeyidGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async keysKeyidGet(response: ResponseContext): Promise<void > {
+     public async keysKeyidGet(response: ResponseContext): Promise<InlineResponse2002 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
             return body;
         }
 
@@ -737,22 +742,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to versionGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async versionGet(response: ResponseContext): Promise<InlineResponse2002 > {
+     public async versionGet(response: ResponseContext): Promise<InlineResponse2003 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: InlineResponse2003 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "InlineResponse2003", ""
+            ) as InlineResponse2003;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: InlineResponse2003 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "InlineResponse2003", ""
+            ) as InlineResponse2003;
             return body;
         }
 

@@ -319,7 +319,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **keysKeyidGet**
-> void keysKeyidGet()
+> InlineResponse2002 keysKeyidGet()
 
 Describe a key pair
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**InlineResponse2002**
 
 ### Authorization
 
@@ -362,7 +362,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -720,7 +720,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **versionGet**
-> InlineResponse2002 versionGet()
+> InlineResponse2003 versionGet()
 
 Get the wallet cli version
 
@@ -748,7 +748,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**InlineResponse2002**
+**InlineResponse2003**
 
 ### Authorization
 

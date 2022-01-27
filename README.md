@@ -1,40 +1,28 @@
-## @
+# Vega Wallet API Client
 
-This generator creates TypeScript/JavaScript client that utilizes fetch-api.
+Generated Typescript client that utilizes fetch-api. Code is generated using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)
 
-### Building
+You will need to [nstall the OpenAPI Generator CLI](https://github.com/OpenAPITools/openapi-generator#1---installation)
 
-Before building you'll need to install openapi generator. [Info here](https://github.com/OpenAPITools/openapi-generator#1---installation)
+## Generate
 
-To generate the client code run:
+To generate the typescript rest client run:
 
 ```
-openapi-generator generate -i ./swagger.json -g typescript
+openapi-generator generate -i ./vegawallet-rest-service.json -g typescript
 ```
+
+or use the npm script:
+
+```
+yarn generate
+```
+
+## Building
 
 To build and compile the typescript sources to javascript use:
 
 ```
-npm install
-npm run build
-```
-
-### Publishing
-
-First build the package then run `npm publish`
-
-### Consuming
-
-navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
-npm install @ --save
-```
-
-_unPublished (not recommended):_
-
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
+yarn install
+yarn build
 ```

@@ -10,25 +10,19 @@
  * Do not edit the class manually.
  */
 
+import { VegaKey } from './VegaKey';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2002 {
-    'version': string;
-    'versionHash': string;
+    'key': VegaKey;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "version",
-            "baseName": "version",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "versionHash",
-            "baseName": "versionHash",
-            "type": "string",
+            "name": "key",
+            "baseName": "key",
+            "type": "VegaKey",
             "format": ""
         }    ];
 

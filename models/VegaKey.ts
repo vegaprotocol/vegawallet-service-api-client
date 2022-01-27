@@ -10,12 +10,14 @@
  * Do not edit the class manually.
  */
 
+import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
 import { VegaKeyMeta } from './VegaKeyMeta';
 import { HttpFile } from '../http/http';
 
 export class VegaKey {
+    'index'?: number;
     'pub'?: string;
-    'algo'?: string;
+    'algorithm'?: VegaKeyAlgorithm;
     'tainted'?: boolean;
     'meta'?: Array<VegaKeyMeta>;
 
@@ -23,15 +25,21 @@ export class VegaKey {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "index",
+            "baseName": "index",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "pub",
             "baseName": "pub",
             "type": "string",
             "format": ""
         },
         {
-            "name": "algo",
-            "baseName": "algo",
-            "type": "string",
+            "name": "algorithm",
+            "baseName": "algorithm",
+            "type": "VegaKeyAlgorithm",
             "format": ""
         },
         {

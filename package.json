@@ -1,7 +1,7 @@
 {
-  "name": "",
-  "version": "",
-  "description": "OpenAPI client for ",
+  "name": "vegawllet-service-api-client",
+  "version": "0.1.0",
+  "description": "OpenAPI client for Vega wallet",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "fetch",
@@ -13,6 +13,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
+    "generate": "openapi-generator generate -i ./vegawallet-rest-service.json -g typescript",
     "build": "tsc",
     "prepare": "npm run build"
   },

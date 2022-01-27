@@ -1,12 +1,10 @@
 .gitignore
 DefaultApi.md
-README.md
 apis/DefaultApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
 configuration.ts
-git_push.sh
 http/http.ts
 http/isomorphic-fetch.ts
 index.ts
@@ -15,11 +13,12 @@ models/InlineObject.ts
 models/InlineResponse200.ts
 models/InlineResponse2001.ts
 models/InlineResponse2002.ts
+models/InlineResponse2003.ts
 models/ObjectSerializer.ts
 models/VegaKey.ts
+models/VegaKeyAlgorithm.ts
 models/VegaKeyMeta.ts
 models/all.ts
-package.json
 rxjsStub.ts
 servers.ts
 tsconfig.json

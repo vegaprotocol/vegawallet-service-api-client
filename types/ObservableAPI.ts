@@ -7,7 +7,9 @@ import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
+import { InlineResponse2003 } from '../models/InlineResponse2003';
 import { VegaKey } from '../models/VegaKey';
+import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -161,7 +163,7 @@ export class ObservableDefaultApi {
      * Describe a key pair
      * @param keyid The public key
      */
-    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<void> {
+    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<InlineResponse2002> {
         const requestContextPromise = this.requestFactory.keysKeyidGet(keyid, _options);
 
         // build promise chain
@@ -338,7 +340,7 @@ export class ObservableDefaultApi {
     /**
      * Get the wallet cli version
      */
-    public versionGet(_options?: Configuration): Observable<InlineResponse2002> {
+    public versionGet(_options?: Configuration): Observable<InlineResponse2003> {
         const requestContextPromise = this.requestFactory.versionGet(_options);
 
         // build promise chain

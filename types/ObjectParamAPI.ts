@@ -6,7 +6,9 @@ import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
+import { InlineResponse2003 } from '../models/InlineResponse2003';
 import { VegaKey } from '../models/VegaKey';
+import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
 
 import { ObservableDefaultApi } from "./ObservableAPI";
@@ -144,7 +146,7 @@ export class ObjectDefaultApi {
      * Describe a key pair
      * @param param the request object
      */
-    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<void> {
+    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<InlineResponse2002> {
         return this.api.keysKeyidGet(param.keyid,  options).toPromise();
     }
 
@@ -207,7 +209,7 @@ export class ObjectDefaultApi {
      * Get the wallet cli version
      * @param param the request object
      */
-    public versionGet(param: DefaultApiVersionGetRequest, options?: Configuration): Promise<InlineResponse2002> {
+    public versionGet(param: DefaultApiVersionGetRequest, options?: Configuration): Promise<InlineResponse2003> {
         return this.api.versionGet( options).toPromise();
     }
 

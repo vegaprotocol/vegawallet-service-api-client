@@ -1,7 +1,12 @@
 {
   "name": "@vegaprotocol/vegawallet-service-api-client",
-  "license": "MIT",
   "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "description": "OpenAPI client for Vega wallet",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
@@ -10,8 +15,6 @@
     "openapi-client",
     "openapi-generator"
   ],
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
   "scripts": {
     "generate": "openapi-generator generate -i ./vegawallet-rest-service.json -g typescript",
     "build": "tsc",

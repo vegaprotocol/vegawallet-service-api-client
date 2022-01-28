@@ -23,7 +23,8 @@
         "type": "object",
         "properties": {
           "index": {
-            "type": "number"
+            "type": "number",
+            "nullable": false
           },
           "pub": {
             "type": "string",
@@ -110,6 +111,7 @@
         }
       },
       "delete": {
+        "security": [{ "bearer": [] }],
         "responses": {
           "200": {
             "description": "Revokes auth token"

@@ -31,6 +31,12 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = _config.authMethods["bearer"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }

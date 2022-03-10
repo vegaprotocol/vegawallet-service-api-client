@@ -3,6 +3,10 @@ export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse2002';
 export * from './InlineResponse2003';
+export * from './TransactionResponse';
+export * from './TransactionResponseTx';
+export * from './TransactionResponseTxFrom';
+export * from './TransactionResponseTxSignature';
 export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
 export * from './VegaKeyMeta';
@@ -12,6 +16,10 @@ import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse2002 } from './InlineResponse2002';
 import { InlineResponse2003 } from './InlineResponse2003';
+import { TransactionResponse } from './TransactionResponse';
+import { TransactionResponseTx } from './TransactionResponseTx';
+import { TransactionResponseTxFrom } from './TransactionResponseTxFrom';
+import { TransactionResponseTxSignature } from './TransactionResponseTxSignature';
 import { VegaKey } from './VegaKey';
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
 import { VegaKeyMeta } from './VegaKeyMeta';
@@ -44,6 +52,10 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,
     "InlineResponse2003": InlineResponse2003,
+    "TransactionResponse": TransactionResponse,
+    "TransactionResponseTx": TransactionResponseTx,
+    "TransactionResponseTxFrom": TransactionResponseTxFrom,
+    "TransactionResponseTxSignature": TransactionResponseTxSignature,
     "VegaKey": VegaKey,
     "VegaKeyAlgorithm": VegaKeyAlgorithm,
     "VegaKeyMeta": VegaKeyMeta,

@@ -66,6 +66,53 @@
             }
           }
         }
+      },
+      "TransactionResponse": {
+        "type": "object",
+        "properties": {
+          "txHash": {
+            "nullable": false,
+            "type": "string"
+          },
+          "tx": {
+            "nullable": false,
+            "type": "object",
+            "properties": {
+              "From": {
+                "nullable": false,
+                "type": "object",
+                "properties": {
+                  "PubKey": {
+                    "nullable": false,
+                    "type": "string"
+                  }
+                }
+              },
+              "input_data": {
+                "type": "string",
+                "nullable": false
+              },
+              "signature": {
+                "type": "object",
+                "nullable": false,
+                "properties": {
+                  "algo": {
+                    "type": "string",
+                    "nullable": false
+                  },
+                  "value": {
+                    "type": "string",
+                    "nullable": false
+                  },
+                  "version": {
+                    "type": "number",
+                    "nullable": false
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -278,7 +325,14 @@
         "description": "Sign a command (sync)",
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionResponse"
+                }
+              }
+            }
           }
         }
       }

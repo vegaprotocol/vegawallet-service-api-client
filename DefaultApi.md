@@ -223,7 +223,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **commandSyncPost**
-> void commandSyncPost()
+> TransactionResponse commandSyncPost()
 
 Sign a command (sync)
 
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**void**
+**TransactionResponse**
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

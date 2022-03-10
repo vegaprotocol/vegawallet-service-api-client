@@ -12,6 +12,7 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { TransactionResponse } from '../models/TransactionResponse';
 
 /**
  * no description
@@ -490,18 +491,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to commandSyncPost
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async commandSyncPost(response: ResponseContext): Promise<void > {
+     public async commandSyncPost(response: ResponseContext): Promise<TransactionResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: TransactionResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "TransactionResponse", ""
+            ) as TransactionResponse;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: TransactionResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "TransactionResponse", ""
+            ) as TransactionResponse;
             return body;
         }
 

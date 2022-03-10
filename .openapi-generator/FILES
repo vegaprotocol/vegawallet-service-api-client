@@ -15,6 +15,10 @@ models/InlineResponse2001.ts
 models/InlineResponse2002.ts
 models/InlineResponse2003.ts
 models/ObjectSerializer.ts
+models/TransactionResponse.ts
+models/TransactionResponseTx.ts
+models/TransactionResponseTxFrom.ts
+models/TransactionResponseTxSignature.ts
 models/VegaKey.ts
 models/VegaKeyAlgorithm.ts
 models/VegaKeyMeta.ts

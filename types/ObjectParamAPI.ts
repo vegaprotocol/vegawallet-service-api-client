@@ -7,6 +7,10 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { TransactionResponse } from '../models/TransactionResponse';
+import { TransactionResponseTx } from '../models/TransactionResponseTx';
+import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
+import { TransactionResponseTxSignature } from '../models/TransactionResponseTxSignature';
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
@@ -130,7 +134,7 @@ export class ObjectDefaultApi {
      * Sign a command (sync)
      * @param param the request object
      */
-    public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<void> {
+    public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
         return this.api.commandSyncPost( options).toPromise();
     }
 

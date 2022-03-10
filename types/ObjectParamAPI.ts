@@ -2,7 +2,9 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { CommandSyncOrderSubmission } from '../models/CommandSyncOrderSubmission';
 import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
@@ -37,6 +39,12 @@ export interface DefaultApiCommandPostRequest {
 }
 
 export interface DefaultApiCommandSyncPostRequest {
+    /**
+     * 
+     * @type InlineObject1
+     * @memberof DefaultApicommandSyncPost
+     */
+    inlineObject1?: InlineObject1
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -135,7 +143,7 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost( options).toPromise();
+        return this.api.commandSyncPost(param.inlineObject1,  options).toPromise();
     }
 
     /**

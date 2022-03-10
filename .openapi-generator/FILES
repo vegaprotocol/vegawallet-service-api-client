@@ -9,7 +9,9 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/CommandSyncOrderSubmission.ts
 models/InlineObject.ts
+models/InlineObject1.ts
 models/InlineResponse200.ts
 models/InlineResponse2001.ts
 models/InlineResponse2002.ts

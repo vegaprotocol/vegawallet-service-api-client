@@ -1,4 +1,6 @@
+export * from './CommandSyncOrderSubmission';
 export * from './InlineObject';
+export * from './InlineObject1';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse2002';
@@ -11,7 +13,9 @@ export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
 export * from './VegaKeyMeta';
 
+import { CommandSyncOrderSubmission } from './CommandSyncOrderSubmission';
 import { InlineObject } from './InlineObject';
+import { InlineObject1 } from './InlineObject1';
 import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse2002 } from './InlineResponse2002';
@@ -47,7 +51,9 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "CommandSyncOrderSubmission": CommandSyncOrderSubmission,
     "InlineObject": InlineObject,
+    "InlineObject1": InlineObject1,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,

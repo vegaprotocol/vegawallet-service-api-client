@@ -2,7 +2,9 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { CommandSyncOrderSubmission } from '../models/CommandSyncOrderSubmission';
 import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
@@ -61,9 +63,10 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
+     * @param inlineObject1 
      */
-    public commandSyncPost(_options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(_options);
+    public commandSyncPost(inlineObject1?: InlineObject1, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(inlineObject1, _options);
         return result.toPromise();
     }
 

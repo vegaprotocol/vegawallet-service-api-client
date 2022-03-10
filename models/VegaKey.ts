@@ -15,11 +15,11 @@ import { VegaKeyMeta } from './VegaKeyMeta';
 import { HttpFile } from '../http/http';
 
 export class VegaKey {
-    'index'?: number;
-    'pub'?: string;
-    'algorithm'?: VegaKeyAlgorithm;
-    'tainted'?: boolean;
-    'meta'?: Array<VegaKeyMeta>;
+    'index': number;
+    'pub': string;
+    'algorithm': VegaKeyAlgorithm;
+    'tainted': boolean;
+    'meta': Array<VegaKeyMeta>;
 
     static readonly discriminator: string | undefined = undefined;
 

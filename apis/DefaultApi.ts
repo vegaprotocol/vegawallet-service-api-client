@@ -8,6 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 
 
 import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
@@ -115,9 +116,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Sign a command (sync)
+     * @param inlineObject1 
      */
-    public async commandSyncPost(_options?: Configuration): Promise<RequestContext> {
+    public async commandSyncPost(inlineObject1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
         // Path Params
         const localVarPath = '/command/sync';
@@ -126,6 +129,17 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(inlineObject1, "InlineObject1", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
 
         return requestContext;

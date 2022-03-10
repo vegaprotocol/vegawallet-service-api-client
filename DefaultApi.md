@@ -237,7 +237,22 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
-let body:any = {};
+let body:.DefaultApiCommandSyncPostRequest = {
+  // InlineObject1 (optional)
+  inlineObject1: {
+    pubKey: "pubKey_example",
+    orderSubmission: {
+      marketId: "marketId_example",
+      reference: "reference_example",
+      type: "type_example",
+      side: "side_example",
+      timeInForce: "timeInForce_example",
+      size: "size_example",
+      price: "price_example",
+      expiresAt: "expiresAt_example",
+    },
+  },
+};
 
 apiInstance.commandSyncPost(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -246,7 +261,10 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject1** | **InlineObject1**|  |
 
 
 ### Return type
@@ -259,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

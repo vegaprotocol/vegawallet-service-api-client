@@ -324,6 +324,7 @@
     "/command/sync": {
       "post": {
         "description": "Sign a command (sync)",
+        "security": [{ "bearer": [] }],
         "requestBody": {
           "content": {
             "application/json": {

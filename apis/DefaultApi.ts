@@ -141,6 +141,12 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
 
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = _config.authMethods["bearer"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
 
         return requestContext;
     }

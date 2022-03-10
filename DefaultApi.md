@@ -238,9 +238,10 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiCommandSyncPostRequest = {
-  // InlineObject1 (optional)
-  inlineObject1: {
+  // OrderSubmissionBody (optional)
+  orderSubmissionBody: {
     pubKey: "pubKey_example",
+    propagate: true,
     orderSubmission: {
       marketId: "marketId_example",
       reference: "reference_example",
@@ -264,7 +265,7 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | **InlineObject1**|  |
+ **orderSubmissionBody** | **OrderSubmissionBody**|  |
 
 
 ### Return type

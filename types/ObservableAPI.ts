@@ -3,13 +3,13 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
-import { CommandSyncOrderSubmission } from '../models/CommandSyncOrderSubmission';
 import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
+import { OrderSubmissionBodyOrderSubmission } from '../models/OrderSubmissionBodyOrderSubmission';
 import { TransactionResponse } from '../models/TransactionResponse';
 import { TransactionResponseTx } from '../models/TransactionResponseTx';
 import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
@@ -123,10 +123,10 @@ export class ObservableDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param inlineObject1 
+     * @param orderSubmissionBody 
      */
-    public commandSyncPost(inlineObject1?: InlineObject1, _options?: Configuration): Observable<TransactionResponse> {
-        const requestContextPromise = this.requestFactory.commandSyncPost(inlineObject1, _options);
+    public commandSyncPost(orderSubmissionBody?: OrderSubmissionBody, _options?: Configuration): Observable<TransactionResponse> {
+        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBody, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

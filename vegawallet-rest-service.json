@@ -114,6 +114,59 @@
             }
           }
         }
+      },
+      "OrderSubmissionBody": {
+        "type": "object",
+        "required": ["pubKey", "propagate", "orderSubmission"],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "orderSubmission": {
+            "nullable": false,
+            "type": "object",
+            "required": ["marketId", "type", "side", "timeInForce", "size"],
+            "properties": {
+              "marketId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "reference": {
+                "nullable": true,
+                "type": "string"
+              },
+              "type": {
+                "nullable": false,
+                "type": "string"
+              },
+              "side": {
+                "nullable": false,
+                "type": "string"
+              },
+              "timeInForce": {
+                "nullable": false,
+                "type": "string"
+              },
+              "size": {
+                "nullable": false,
+                "type": "string"
+              },
+              "price": {
+                "nullable": true,
+                "type": "string"
+              },
+              "expiresAt": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -329,58 +382,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "pubKey": {
-                    "nullable": false,
-                    "type": "string"
-                  },
-                  "orderSubmission": {
-                    "nullable": false,
-                    "type": "object",
-                    "required": [
-                      "marketId",
-                      "type",
-                      "side",
-                      "timeInForce",
-                      "size"
-                    ],
-                    "properties": {
-                      "marketId": {
-                        "nullable": false,
-                        "type": "string"
-                      },
-                      "reference": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "type": {
-                        "nullable": false,
-                        "type": "string"
-                      },
-                      "side": {
-                        "nullable": false,
-                        "type": "string"
-                      },
-                      "timeInForce": {
-                        "nullable": false,
-                        "type": "string"
-                      },
-                      "size": {
-                        "nullable": false,
-                        "type": "string"
-                      },
-                      "price": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "expiresAt": {
-                        "nullable": true,
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/OrderSubmissionBody"
               }
             }
           }

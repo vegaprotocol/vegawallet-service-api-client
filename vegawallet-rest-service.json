@@ -167,6 +167,25 @@
             }
           }
         }
+      },
+      "GenericError": {
+        "type": "object",
+        "required": ["errors"],
+        "properties": {
+          "errors": {
+            "type": "object",
+            "properties": {
+              "*": {
+                "nullable": false,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "nullable": false
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -394,6 +413,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TransactionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericError"
                 }
               }
             }

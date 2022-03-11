@@ -7,6 +7,7 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
+import { GenericError } from '../models/GenericError';
 import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
@@ -519,6 +520,13 @@ export class DefaultApiResponseProcessor {
                 "TransactionResponse", ""
             ) as TransactionResponse;
             return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: GenericError = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GenericError", ""
+            ) as GenericError;
+            throw new ApiException<GenericError>(400, "Bad request", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

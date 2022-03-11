@@ -1,3 +1,5 @@
+export * from './GenericError'
+export * from './GenericErrorErrors'
 export * from './InlineObject'
 export * from './InlineResponse200'
 export * from './InlineResponse2001'

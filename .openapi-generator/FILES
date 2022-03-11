@@ -9,6 +9,8 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/GenericError.ts
+models/GenericErrorErrors.ts
 models/InlineObject.ts
 models/InlineResponse200.ts
 models/InlineResponse2001.ts

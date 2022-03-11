@@ -1,3 +1,5 @@
+export * from './GenericError';
+export * from './GenericErrorErrors';
 export * from './InlineObject';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';
@@ -13,6 +15,8 @@ export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
 export * from './VegaKeyMeta';
 
+import { GenericError } from './GenericError';
+import { GenericErrorErrors } from './GenericErrorErrors';
 import { InlineObject } from './InlineObject';
 import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
@@ -51,6 +55,8 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "GenericError": GenericError,
+    "GenericErrorErrors": GenericErrorErrors,
     "InlineObject": InlineObject,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,

@@ -18,6 +18,10 @@ import { TransactionResponseTxSignature } from '../models/TransactionResponseTxS
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
+import { WithdrawSubmissionBodyWithdrawSubmission } from '../models/WithdrawSubmissionBodyWithdrawSubmission';
+import { WithdrawSubmissionBodyWithdrawSubmissionExt } from '../models/WithdrawSubmissionBodyWithdrawSubmissionExt';
+import { WithdrawSubmissionBodyWithdrawSubmissionExtErc20 } from '../models/WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -43,10 +47,10 @@ export interface DefaultApiCommandPostRequest {
 export interface DefaultApiCommandSyncPostRequest {
     /**
      * 
-     * @type OrderSubmissionBody
+     * @type OrderSubmissionBody | WithdrawSubmissionBody
      * @memberof DefaultApicommandSyncPost
      */
-    orderSubmissionBody?: OrderSubmissionBody
+    orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -145,7 +149,7 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost(param.orderSubmissionBody,  options).toPromise();
+        return this.api.commandSyncPost(param.orderSubmissionBodyWithdrawSubmissionBody,  options).toPromise();
     }
 
     /**

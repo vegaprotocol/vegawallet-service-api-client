@@ -26,6 +26,10 @@ models/TransactionResponseTxSignature.ts
 models/VegaKey.ts
 models/VegaKeyAlgorithm.ts
 models/VegaKeyMeta.ts
+models/WithdrawSubmissionBody.ts
+models/WithdrawSubmissionBodyWithdrawSubmission.ts
+models/WithdrawSubmissionBodyWithdrawSubmissionExt.ts
+models/WithdrawSubmissionBodyWithdrawSubmissionExtErc20.ts
 models/all.ts
 rxjsStub.ts
 servers.ts

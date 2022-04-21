@@ -15,6 +15,7 @@ import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
 import { TransactionResponse } from '../models/TransactionResponse';
+import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
 
 /**
  * no description
@@ -117,9 +118,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBody 
+     * @param orderSubmissionBodyWithdrawSubmissionBody 
      */
-    public async commandSyncPost(orderSubmissionBody?: OrderSubmissionBody, _options?: Configuration): Promise<RequestContext> {
+    public async commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -137,7 +138,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(orderSubmissionBody, "OrderSubmissionBody", ""),
+            ObjectSerializer.serialize(orderSubmissionBodyWithdrawSubmissionBody, "OrderSubmissionBody | WithdrawSubmissionBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

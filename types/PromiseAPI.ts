@@ -18,6 +18,10 @@ import { TransactionResponseTxSignature } from '../models/TransactionResponseTxS
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
+import { WithdrawSubmissionBodyWithdrawSubmission } from '../models/WithdrawSubmissionBodyWithdrawSubmission';
+import { WithdrawSubmissionBodyWithdrawSubmissionExt } from '../models/WithdrawSubmissionBodyWithdrawSubmissionExt';
+import { WithdrawSubmissionBodyWithdrawSubmissionExtErc20 } from '../models/WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 import { ObservableDefaultApi } from './ObservableAPI';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -65,10 +69,10 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBody 
+     * @param orderSubmissionBodyWithdrawSubmissionBody 
      */
-    public commandSyncPost(orderSubmissionBody?: OrderSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(orderSubmissionBody, _options);
+    public commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody, _options);
         return result.toPromise();
     }
 

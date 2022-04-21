@@ -14,6 +14,10 @@ export * from './TransactionResponseTxSignature';
 export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
 export * from './VegaKeyMeta';
+export * from './WithdrawSubmissionBody';
+export * from './WithdrawSubmissionBodyWithdrawSubmission';
+export * from './WithdrawSubmissionBodyWithdrawSubmissionExt';
+export * from './WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 
 import { GenericError } from './GenericError';
 import { GenericErrorErrors } from './GenericErrorErrors';
@@ -31,6 +35,10 @@ import { TransactionResponseTxSignature } from './TransactionResponseTxSignature
 import { VegaKey } from './VegaKey';
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
 import { VegaKeyMeta } from './VegaKeyMeta';
+import { WithdrawSubmissionBody } from './WithdrawSubmissionBody';
+import { WithdrawSubmissionBodyWithdrawSubmission } from './WithdrawSubmissionBodyWithdrawSubmission';
+import { WithdrawSubmissionBodyWithdrawSubmissionExt } from './WithdrawSubmissionBodyWithdrawSubmissionExt';
+import { WithdrawSubmissionBodyWithdrawSubmissionExtErc20 } from './WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -71,6 +79,10 @@ let typeMap: {[index: string]: any} = {
     "VegaKey": VegaKey,
     "VegaKeyAlgorithm": VegaKeyAlgorithm,
     "VegaKeyMeta": VegaKeyMeta,
+    "WithdrawSubmissionBody": WithdrawSubmissionBody,
+    "WithdrawSubmissionBodyWithdrawSubmission": WithdrawSubmissionBodyWithdrawSubmission,
+    "WithdrawSubmissionBodyWithdrawSubmissionExt": WithdrawSubmissionBodyWithdrawSubmissionExt,
+    "WithdrawSubmissionBodyWithdrawSubmissionExtErc20": WithdrawSubmissionBodyWithdrawSubmissionExtErc20,
 }
 
 export class ObjectSerializer {

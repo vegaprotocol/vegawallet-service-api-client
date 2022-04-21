@@ -238,21 +238,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiCommandSyncPostRequest = {
-  // OrderSubmissionBody (optional)
-  orderSubmissionBody: {
-    pubKey: "pubKey_example",
-    propagate: true,
-    orderSubmission: {
-      marketId: "marketId_example",
-      reference: "reference_example",
-      type: "type_example",
-      side: "side_example",
-      timeInForce: "timeInForce_example",
-      size: "size_example",
-      price: "price_example",
-      expiresAt: "expiresAt_example",
-    },
-  },
+  // OrderSubmissionBody | WithdrawSubmissionBody (optional)
+  orderSubmissionBodyWithdrawSubmissionBody: null,
 };
 
 apiInstance.commandSyncPost(body).then((data:any) => {
@@ -265,7 +252,7 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderSubmissionBody** | **OrderSubmissionBody**|  |
+ **orderSubmissionBodyWithdrawSubmissionBody** | **OrderSubmissionBody | WithdrawSubmissionBody**|  |
 
 
 ### Return type

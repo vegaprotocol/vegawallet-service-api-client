@@ -41,12 +41,12 @@ import { TransactionResponseTx } from './TransactionResponseTx';
 import { TransactionResponseTxFrom } from './TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from './TransactionResponseTxSignature';
 import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
-import { UndelegateSubmissionBodyUndelegateSubmission } from './UndelegateSubmissionBodyUndelegateSubmission';
+import { UndelegateSubmissionBodyUndelegateSubmission  , UndelegateSubmissionBodyUndelegateSubmissionMethodEnum   } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from './VegaKey';
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
 import { VegaKeyMeta } from './VegaKeyMeta';
 import { VoteSubmissionBody } from './VoteSubmissionBody';
-import { VoteSubmissionBodyVoteSubmission } from './VoteSubmissionBodyVoteSubmission';
+import { VoteSubmissionBodyVoteSubmission, VoteSubmissionBodyVoteSubmissionValueEnum    } from './VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from './WithdrawSubmissionBody';
 import { WithdrawSubmissionBodyWithdrawSubmission } from './WithdrawSubmissionBodyWithdrawSubmission';
 import { WithdrawSubmissionBodyWithdrawSubmissionExt } from './WithdrawSubmissionBodyWithdrawSubmissionExt';
@@ -72,6 +72,8 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "UndelegateSubmissionBodyUndelegateSubmissionMethodEnum",
+    "VoteSubmissionBodyVoteSubmissionValueEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {

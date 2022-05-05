@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 export class UndelegateSubmissionBodyUndelegateSubmission {
     'nodeId': string;
     'amount': string;
-    'method': string;
+    'method': UndelegateSubmissionBodyUndelegateSubmissionMethodEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,7 +35,7 @@ export class UndelegateSubmissionBodyUndelegateSubmission {
         {
             "name": "method",
             "baseName": "method",
-            "type": "string",
+            "type": "UndelegateSubmissionBodyUndelegateSubmissionMethodEnum",
             "format": ""
         }    ];
 
@@ -46,4 +46,7 @@ export class UndelegateSubmissionBodyUndelegateSubmission {
     public constructor() {
     }
 }
+
+
+export type UndelegateSubmissionBodyUndelegateSubmissionMethodEnum = "METHOD_NOW" | "METHOD_AT_END_OF_EPOCH" ;
 

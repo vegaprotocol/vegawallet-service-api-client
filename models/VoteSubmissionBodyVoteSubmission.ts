@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class VoteSubmissionBodyVoteSubmission {
-    'value': string;
+    'value': VoteSubmissionBodyVoteSubmissionValueEnum;
     'proposalId': string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -22,7 +22,7 @@ export class VoteSubmissionBodyVoteSubmission {
         {
             "name": "value",
             "baseName": "value",
-            "type": "string",
+            "type": "VoteSubmissionBodyVoteSubmissionValueEnum",
             "format": ""
         },
         {
@@ -39,4 +39,7 @@ export class VoteSubmissionBodyVoteSubmission {
     public constructor() {
     }
 }
+
+
+export type VoteSubmissionBodyVoteSubmissionValueEnum = "VALUE_YES" | "VALUE_NO" ;
 

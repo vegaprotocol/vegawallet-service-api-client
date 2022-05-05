@@ -234,7 +234,8 @@
             "properties": {
               "value": {
                 "nullable": false,
-                "type": "string"
+                "type": "string",
+                "enum": ["VALUE_YES", "VALUE_NO"]
               },
               "proposalId": {
                 "nullable": true,
@@ -300,7 +301,8 @@
               },
               "method": {
                 "nullable": true,
-                "type": "string"
+                "type": "string",
+                "enum": ["METHOD_NOW", "METHOD_AT_END_OF_EPOCH"]
               }
             }
           }

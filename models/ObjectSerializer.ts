@@ -1,3 +1,5 @@
+export * from './DelegateSubmissionBody';
+export * from './DelegateSubmissionBodyDelegateSubmission';
 export * from './GenericError';
 export * from './GenericErrorErrors';
 export * from './InlineObject';
@@ -11,14 +13,20 @@ export * from './TransactionResponse';
 export * from './TransactionResponseTx';
 export * from './TransactionResponseTxFrom';
 export * from './TransactionResponseTxSignature';
+export * from './UndelegateSubmissionBody';
+export * from './UndelegateSubmissionBodyUndelegateSubmission';
 export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
 export * from './VegaKeyMeta';
+export * from './VoteSubmissionBody';
+export * from './VoteSubmissionBodyVoteSubmission';
 export * from './WithdrawSubmissionBody';
 export * from './WithdrawSubmissionBodyWithdrawSubmission';
 export * from './WithdrawSubmissionBodyWithdrawSubmissionExt';
 export * from './WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 
+import { DelegateSubmissionBody } from './DelegateSubmissionBody';
+import { DelegateSubmissionBodyDelegateSubmission } from './DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from './GenericError';
 import { GenericErrorErrors } from './GenericErrorErrors';
 import { InlineObject } from './InlineObject';
@@ -32,9 +40,13 @@ import { TransactionResponse } from './TransactionResponse';
 import { TransactionResponseTx } from './TransactionResponseTx';
 import { TransactionResponseTxFrom } from './TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from './TransactionResponseTxSignature';
+import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
+import { UndelegateSubmissionBodyUndelegateSubmission } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from './VegaKey';
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
 import { VegaKeyMeta } from './VegaKeyMeta';
+import { VoteSubmissionBody } from './VoteSubmissionBody';
+import { VoteSubmissionBodyVoteSubmission } from './VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from './WithdrawSubmissionBody';
 import { WithdrawSubmissionBodyWithdrawSubmission } from './WithdrawSubmissionBodyWithdrawSubmission';
 import { WithdrawSubmissionBodyWithdrawSubmissionExt } from './WithdrawSubmissionBodyWithdrawSubmissionExt';
@@ -63,6 +75,8 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "DelegateSubmissionBody": DelegateSubmissionBody,
+    "DelegateSubmissionBodyDelegateSubmission": DelegateSubmissionBodyDelegateSubmission,
     "GenericError": GenericError,
     "GenericErrorErrors": GenericErrorErrors,
     "InlineObject": InlineObject,
@@ -76,9 +90,13 @@ let typeMap: {[index: string]: any} = {
     "TransactionResponseTx": TransactionResponseTx,
     "TransactionResponseTxFrom": TransactionResponseTxFrom,
     "TransactionResponseTxSignature": TransactionResponseTxSignature,
+    "UndelegateSubmissionBody": UndelegateSubmissionBody,
+    "UndelegateSubmissionBodyUndelegateSubmission": UndelegateSubmissionBodyUndelegateSubmission,
     "VegaKey": VegaKey,
     "VegaKeyAlgorithm": VegaKeyAlgorithm,
     "VegaKeyMeta": VegaKeyMeta,
+    "VoteSubmissionBody": VoteSubmissionBody,
+    "VoteSubmissionBodyVoteSubmission": VoteSubmissionBodyVoteSubmission,
     "WithdrawSubmissionBody": WithdrawSubmissionBody,
     "WithdrawSubmissionBodyWithdrawSubmission": WithdrawSubmissionBodyWithdrawSubmission,
     "WithdrawSubmissionBodyWithdrawSubmissionExt": WithdrawSubmissionBodyWithdrawSubmissionExt,

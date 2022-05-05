@@ -9,6 +9,8 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/DelegateSubmissionBody.ts
+models/DelegateSubmissionBodyDelegateSubmission.ts
 models/GenericError.ts
 models/GenericErrorErrors.ts
 models/InlineObject.ts
@@ -23,9 +25,13 @@ models/TransactionResponse.ts
 models/TransactionResponseTx.ts
 models/TransactionResponseTxFrom.ts
 models/TransactionResponseTxSignature.ts
+models/UndelegateSubmissionBody.ts
+models/UndelegateSubmissionBodyUndelegateSubmission.ts
 models/VegaKey.ts
 models/VegaKeyAlgorithm.ts
 models/VegaKeyMeta.ts
+models/VoteSubmissionBody.ts
+models/VoteSubmissionBodyVoteSubmission.ts
 models/WithdrawSubmissionBody.ts
 models/WithdrawSubmissionBodyWithdrawSubmission.ts
 models/WithdrawSubmissionBodyWithdrawSubmissionExt.ts

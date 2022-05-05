@@ -2,6 +2,8 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { DelegateSubmissionBody } from '../models/DelegateSubmissionBody';
+import { DelegateSubmissionBodyDelegateSubmission } from '../models/DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from '../models/GenericError';
 import { GenericErrorErrors } from '../models/GenericErrorErrors';
 import { InlineObject } from '../models/InlineObject';
@@ -15,9 +17,13 @@ import { TransactionResponse } from '../models/TransactionResponse';
 import { TransactionResponseTx } from '../models/TransactionResponseTx';
 import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from '../models/TransactionResponseTxSignature';
+import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
+import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
 import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
+import { VoteSubmissionBodyVoteSubmission } from '../models/VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
 import { WithdrawSubmissionBodyWithdrawSubmission } from '../models/WithdrawSubmissionBodyWithdrawSubmission';
 import { WithdrawSubmissionBodyWithdrawSubmissionExt } from '../models/WithdrawSubmissionBodyWithdrawSubmissionExt';

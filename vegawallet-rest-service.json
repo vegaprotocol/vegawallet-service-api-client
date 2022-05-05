@@ -215,6 +215,97 @@
           }
         }
       },
+      "VoteSubmissionBody": {
+        "type": "object",
+        "required": ["pubKey", "propagate", "voteSubmission"],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "voteSubmission": {
+            "nullable": false,
+            "type": "object",
+            "required": ["value", "proposalId"],
+            "properties": {
+              "value": {
+                "nullable": false,
+                "type": "string"
+              },
+              "proposalId": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "DelegateSubmissionBody": {
+        "type": "object",
+        "required": ["pubKey", "propagate", "delegateSubmission"],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "delegateSubmission": {
+            "nullable": false,
+            "type": "object",
+            "required": ["nodeId", "amount"],
+            "properties": {
+              "nodeId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "amount": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "UndelegateSubmissionBody": {
+        "type": "object",
+        "required": ["pubKey", "propagate", "undelegateSubmission"],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "undelegateSubmission": {
+            "nullable": false,
+            "type": "object",
+            "required": ["nodeId", "amount", "method"],
+            "properties": {
+              "nodeId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "amount": {
+                "nullable": true,
+                "type": "string"
+              },
+              "method": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "GenericError": {
         "type": "object",
         "required": ["errors"],

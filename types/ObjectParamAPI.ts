@@ -53,10 +53,10 @@ export interface DefaultApiCommandPostRequest {
 export interface DefaultApiCommandSyncPostRequest {
     /**
      * 
-     * @type OrderSubmissionBody | WithdrawSubmissionBody
+     * @type OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
      * @memberof DefaultApicommandSyncPost
      */
-    orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody
+    orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -155,7 +155,7 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost(param.orderSubmissionBodyWithdrawSubmissionBody,  options).toPromise();
+        return this.api.commandSyncPost(param.orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody,  options).toPromise();
     }
 
     /**

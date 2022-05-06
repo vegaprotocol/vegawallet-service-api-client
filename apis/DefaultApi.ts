@@ -7,6 +7,7 @@ import {ApiException} from './exception';
 import {canConsumeForm, isCodeInRange} from '../util';
 
 
+import { DelegateSubmissionBody } from '../models/DelegateSubmissionBody';
 import { GenericError } from '../models/GenericError';
 import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
@@ -15,6 +16,8 @@ import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
 import { TransactionResponse } from '../models/TransactionResponse';
+import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
+import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
 
 /**
@@ -118,9 +121,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyWithdrawSubmissionBody 
+     * @param orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
      */
-    public async commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody, _options?: Configuration): Promise<RequestContext> {
+    public async commandSyncPost(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -138,7 +141,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(orderSubmissionBodyWithdrawSubmissionBody, "OrderSubmissionBody | WithdrawSubmissionBody", ""),
+            ObjectSerializer.serialize(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, "OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

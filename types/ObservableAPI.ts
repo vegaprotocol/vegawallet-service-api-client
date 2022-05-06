@@ -135,10 +135,10 @@ export class ObservableDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyWithdrawSubmissionBody 
+     * @param orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
      */
-    public commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody, _options?: Configuration): Observable<TransactionResponse> {
-        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody, _options);
+    public commandSyncPost(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Observable<TransactionResponse> {
+        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

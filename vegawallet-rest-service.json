@@ -547,6 +547,15 @@
                   },
                   {
                     "$ref": "#/components/schemas/WithdrawSubmissionBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/VoteSubmissionBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/DelegateSubmissionBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UndelegateSubmissionBody"
                   }
                 ]
               }

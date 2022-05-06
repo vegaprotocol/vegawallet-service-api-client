@@ -75,10 +75,10 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyWithdrawSubmissionBody 
+     * @param orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
      */
-    public commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(orderSubmissionBodyWithdrawSubmissionBody, _options);
+    public commandSyncPost(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, _options);
         return result.toPromise();
     }
 

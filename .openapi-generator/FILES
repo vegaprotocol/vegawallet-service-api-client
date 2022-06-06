@@ -19,6 +19,8 @@ models/InlineResponse2001.ts
 models/InlineResponse2002.ts
 models/InlineResponse2003.ts
 models/ObjectSerializer.ts
+models/OrderCancellationBody.ts
+models/OrderCancellationBodyOrderCancellation.ts
 models/OrderSubmissionBody.ts
 models/OrderSubmissionBodyOrderSubmission.ts
 models/TransactionResponse.ts

@@ -11,6 +11,8 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { OrderCancellationBody } from '../models/OrderCancellationBody';
+import { OrderCancellationBodyOrderCancellation } from '../models/OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
 import { OrderSubmissionBodyOrderSubmission } from '../models/OrderSubmissionBodyOrderSubmission';
 import { TransactionResponse } from '../models/TransactionResponse';
@@ -53,10 +55,10 @@ export interface DefaultApiCommandPostRequest {
 export interface DefaultApiCommandSyncPostRequest {
     /**
      * 
-     * @type OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
+     * @type OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
      * @memberof DefaultApicommandSyncPost
      */
-    orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
+    orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -155,7 +157,7 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost(param.orderSubmissionBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody,  options).toPromise();
+        return this.api.commandSyncPost(param.orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody,  options).toPromise();
     }
 
     /**

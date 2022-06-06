@@ -168,6 +168,35 @@
           }
         }
       },
+      "OrderCancellationBody": {
+        "type": "object",
+        "required": ["pubKey", "propagate", "orderCancellation"],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "orderCancellation": {
+            "nullable": false,
+            "type": "object",
+            "required": ["orderId", "marketId"],
+            "properties": {
+              "orderId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "marketId": {
+                "nullable": false,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "WithdrawSubmissionBody": {
         "type": "object",
         "required": ["pubKey", "propagate", "withdrawSubmission"],
@@ -544,6 +573,9 @@
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/OrderSubmissionBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/OrderCancellationBody"
                   },
                   {
                     "$ref": "#/components/schemas/WithdrawSubmissionBody"

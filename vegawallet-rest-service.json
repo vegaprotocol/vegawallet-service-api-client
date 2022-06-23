@@ -614,6 +614,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "User rejected"
           }
         }
       }

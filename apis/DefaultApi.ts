@@ -533,6 +533,9 @@ export class DefaultApiResponseProcessor {
             ) as GenericError;
             throw new ApiException<GenericError>(400, "Bad request", body, response.headers);
         }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "User rejected", undefined, response.headers);
+        }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {

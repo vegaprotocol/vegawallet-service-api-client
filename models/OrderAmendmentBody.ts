@@ -10,53 +10,38 @@
  * Do not edit the class manually.
  */
 
-import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
-import { VegaKeyMetaInner } from './VegaKeyMetaInner';
+import { OrderAmendmentBodyOrderSubmission } from './OrderAmendmentBodyOrderSubmission';
 import { HttpFile } from '../http/http';
 
-export class VegaKey {
-    'index': number;
-    'pub': string;
-    'algorithm': VegaKeyAlgorithm;
-    'tainted': boolean;
-    'meta': Array<VegaKeyMetaInner>;
+export class OrderAmendmentBody {
+    'pubKey': string;
+    'propagate': boolean;
+    'orderSubmission': OrderAmendmentBodyOrderSubmission;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "index",
-            "baseName": "index",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "pub",
-            "baseName": "pub",
+            "name": "pubKey",
+            "baseName": "pubKey",
             "type": "string",
             "format": ""
         },
         {
-            "name": "algorithm",
-            "baseName": "algorithm",
-            "type": "VegaKeyAlgorithm",
-            "format": ""
-        },
-        {
-            "name": "tainted",
-            "baseName": "tainted",
+            "name": "propagate",
+            "baseName": "propagate",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "meta",
-            "baseName": "meta",
-            "type": "Array<VegaKeyMetaInner>",
+            "name": "orderSubmission",
+            "baseName": "orderSubmission",
+            "type": "OrderAmendmentBodyOrderSubmission",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return VegaKey.attributeTypeMap;
+        return OrderAmendmentBody.attributeTypeMap;
     }
 
     public constructor() {

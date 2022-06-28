@@ -2,15 +2,17 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AuthTokenDelete200Response } from '../models/AuthTokenDelete200Response';
+import { AuthTokenDeleteRequest } from '../models/AuthTokenDeleteRequest';
+import { CommandSyncPostRequest } from '../models/CommandSyncPostRequest';
 import { DelegateSubmissionBody } from '../models/DelegateSubmissionBody';
 import { DelegateSubmissionBodyDelegateSubmission } from '../models/DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from '../models/GenericError';
 import { GenericErrorErrors } from '../models/GenericErrorErrors';
-import { InlineObject } from '../models/InlineObject';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse2002 } from '../models/InlineResponse2002';
-import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { KeysGet200Response } from '../models/KeysGet200Response';
+import { KeysKeyidGet200Response } from '../models/KeysKeyidGet200Response';
+import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
+import { OrderAmendmentBodyOrderSubmission } from '../models/OrderAmendmentBodyOrderSubmission';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from '../models/OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
@@ -23,7 +25,8 @@ import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
-import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { VegaKeyMetaInner } from '../models/VegaKeyMetaInner';
+import { VersionGet200Response } from '../models/VersionGet200Response';
 import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
 import { VoteSubmissionBodyVoteSubmission } from '../models/VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
@@ -52,10 +55,10 @@ export class PromiseDefaultApi {
     }
 
     /**
-     * @param inlineObject 
+     * @param authTokenDeleteRequest 
      */
-    public authTokenPost(inlineObject: InlineObject, _options?: Configuration): Promise<InlineResponse200> {
-        const result = this.api.authTokenPost(inlineObject, _options);
+    public authTokenPost(authTokenDeleteRequest: AuthTokenDeleteRequest, _options?: Configuration): Promise<AuthTokenDelete200Response> {
+        const result = this.api.authTokenPost(authTokenDeleteRequest, _options);
         return result.toPromise();
     }
 
@@ -77,17 +80,17 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
+     * @param commandSyncPostRequest 
      */
-    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, _options);
+    public commandSyncPost(commandSyncPostRequest?: CommandSyncPostRequest, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(commandSyncPostRequest, _options);
         return result.toPromise();
     }
 
     /**
      * List keys
      */
-    public keysGet(_options?: Configuration): Promise<InlineResponse2001> {
+    public keysGet(_options?: Configuration): Promise<KeysGet200Response> {
         const result = this.api.keysGet(_options);
         return result.toPromise();
     }
@@ -96,7 +99,7 @@ export class PromiseDefaultApi {
      * Describe a key pair
      * @param keyid The public key
      */
-    public keysKeyidGet(keyid: string, _options?: Configuration): Promise<InlineResponse2002> {
+    public keysKeyidGet(keyid: string, _options?: Configuration): Promise<KeysKeyidGet200Response> {
         const result = this.api.keysKeyidGet(keyid, _options);
         return result.toPromise();
     }
@@ -161,7 +164,7 @@ export class PromiseDefaultApi {
     /**
      * Get the wallet cli version
      */
-    public versionGet(_options?: Configuration): Promise<InlineResponse2003> {
+    public versionGet(_options?: Configuration): Promise<VersionGet200Response> {
         const result = this.api.versionGet(_options);
         return result.toPromise();
     }

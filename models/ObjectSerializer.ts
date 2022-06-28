@@ -1,12 +1,14 @@
+export * from './AuthTokenDelete200Response';
+export * from './AuthTokenDeleteRequest';
+export * from './CommandSyncPostRequest';
 export * from './DelegateSubmissionBody';
 export * from './DelegateSubmissionBodyDelegateSubmission';
 export * from './GenericError';
 export * from './GenericErrorErrors';
-export * from './InlineObject';
-export * from './InlineResponse200';
-export * from './InlineResponse2001';
-export * from './InlineResponse2002';
-export * from './InlineResponse2003';
+export * from './KeysGet200Response';
+export * from './KeysKeyidGet200Response';
+export * from './OrderAmendmentBody';
+export * from './OrderAmendmentBodyOrderSubmission';
 export * from './OrderCancellationBody';
 export * from './OrderCancellationBodyOrderCancellation';
 export * from './OrderSubmissionBody';
@@ -19,7 +21,8 @@ export * from './UndelegateSubmissionBody';
 export * from './UndelegateSubmissionBodyUndelegateSubmission';
 export * from './VegaKey';
 export * from './VegaKeyAlgorithm';
-export * from './VegaKeyMeta';
+export * from './VegaKeyMetaInner';
+export * from './VersionGet200Response';
 export * from './VoteSubmissionBody';
 export * from './VoteSubmissionBodyVoteSubmission';
 export * from './WithdrawSubmissionBody';
@@ -27,15 +30,17 @@ export * from './WithdrawSubmissionBodyWithdrawSubmission';
 export * from './WithdrawSubmissionBodyWithdrawSubmissionExt';
 export * from './WithdrawSubmissionBodyWithdrawSubmissionExtErc20';
 
+import { AuthTokenDelete200Response } from './AuthTokenDelete200Response';
+import { AuthTokenDeleteRequest } from './AuthTokenDeleteRequest';
+import { CommandSyncPostRequest } from './CommandSyncPostRequest';
 import { DelegateSubmissionBody } from './DelegateSubmissionBody';
 import { DelegateSubmissionBodyDelegateSubmission } from './DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from './GenericError';
 import { GenericErrorErrors } from './GenericErrorErrors';
-import { InlineObject } from './InlineObject';
-import { InlineResponse200 } from './InlineResponse200';
-import { InlineResponse2001 } from './InlineResponse2001';
-import { InlineResponse2002 } from './InlineResponse2002';
-import { InlineResponse2003 } from './InlineResponse2003';
+import { KeysGet200Response } from './KeysGet200Response';
+import { KeysKeyidGet200Response } from './KeysKeyidGet200Response';
+import { OrderAmendmentBody } from './OrderAmendmentBody';
+import { OrderAmendmentBodyOrderSubmission } from './OrderAmendmentBodyOrderSubmission';
 import { OrderCancellationBody } from './OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from './OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from './OrderSubmissionBody';
@@ -48,7 +53,8 @@ import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission  , UndelegateSubmissionBodyUndelegateSubmissionMethodEnum   } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from './VegaKey';
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
-import { VegaKeyMeta } from './VegaKeyMeta';
+import { VegaKeyMetaInner } from './VegaKeyMetaInner';
+import { VersionGet200Response } from './VersionGet200Response';
 import { VoteSubmissionBody } from './VoteSubmissionBody';
 import { VoteSubmissionBodyVoteSubmission, VoteSubmissionBodyVoteSubmissionValueEnum    } from './VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from './WithdrawSubmissionBody';
@@ -81,15 +87,17 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "AuthTokenDelete200Response": AuthTokenDelete200Response,
+    "AuthTokenDeleteRequest": AuthTokenDeleteRequest,
+    "CommandSyncPostRequest": CommandSyncPostRequest,
     "DelegateSubmissionBody": DelegateSubmissionBody,
     "DelegateSubmissionBodyDelegateSubmission": DelegateSubmissionBodyDelegateSubmission,
     "GenericError": GenericError,
     "GenericErrorErrors": GenericErrorErrors,
-    "InlineObject": InlineObject,
-    "InlineResponse200": InlineResponse200,
-    "InlineResponse2001": InlineResponse2001,
-    "InlineResponse2002": InlineResponse2002,
-    "InlineResponse2003": InlineResponse2003,
+    "KeysGet200Response": KeysGet200Response,
+    "KeysKeyidGet200Response": KeysKeyidGet200Response,
+    "OrderAmendmentBody": OrderAmendmentBody,
+    "OrderAmendmentBodyOrderSubmission": OrderAmendmentBodyOrderSubmission,
     "OrderCancellationBody": OrderCancellationBody,
     "OrderCancellationBodyOrderCancellation": OrderCancellationBodyOrderCancellation,
     "OrderSubmissionBody": OrderSubmissionBody,
@@ -102,7 +110,8 @@ let typeMap: {[index: string]: any} = {
     "UndelegateSubmissionBodyUndelegateSubmission": UndelegateSubmissionBodyUndelegateSubmission,
     "VegaKey": VegaKey,
     "VegaKeyAlgorithm": VegaKeyAlgorithm,
-    "VegaKeyMeta": VegaKeyMeta,
+    "VegaKeyMetaInner": VegaKeyMetaInner,
+    "VersionGet200Response": VersionGet200Response,
     "VoteSubmissionBody": VoteSubmissionBody,
     "VoteSubmissionBodyVoteSubmission": VoteSubmissionBodyVoteSubmission,
     "WithdrawSubmissionBody": WithdrawSubmissionBody,
@@ -224,7 +233,10 @@ export class ObjectSerializer {
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             for (let index in attributeTypes) {
                 let attributeType = attributeTypes[index];
-                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
+                let value = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
+                if (value !== undefined) {
+                    instance[attributeType.name] = value;
+                }
             }
             return instance;
         }

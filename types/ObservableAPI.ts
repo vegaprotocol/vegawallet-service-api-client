@@ -3,15 +3,17 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { AuthTokenDelete200Response } from '../models/AuthTokenDelete200Response';
+import { AuthTokenDeleteRequest } from '../models/AuthTokenDeleteRequest';
+import { CommandSyncPostRequest } from '../models/CommandSyncPostRequest';
 import { DelegateSubmissionBody } from '../models/DelegateSubmissionBody';
 import { DelegateSubmissionBodyDelegateSubmission } from '../models/DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from '../models/GenericError';
 import { GenericErrorErrors } from '../models/GenericErrorErrors';
-import { InlineObject } from '../models/InlineObject';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse2002 } from '../models/InlineResponse2002';
-import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { KeysGet200Response } from '../models/KeysGet200Response';
+import { KeysKeyidGet200Response } from '../models/KeysKeyidGet200Response';
+import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
+import { OrderAmendmentBodyOrderSubmission } from '../models/OrderAmendmentBodyOrderSubmission';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from '../models/OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
@@ -24,7 +26,8 @@ import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
-import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { VegaKeyMetaInner } from '../models/VegaKeyMetaInner';
+import { VersionGet200Response } from '../models/VersionGet200Response';
 import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
 import { VoteSubmissionBodyVoteSubmission } from '../models/VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
@@ -70,10 +73,10 @@ export class ObservableDefaultApi {
     }
 
     /**
-     * @param inlineObject 
+     * @param authTokenDeleteRequest 
      */
-    public authTokenPost(inlineObject: InlineObject, _options?: Configuration): Observable<InlineResponse200> {
-        const requestContextPromise = this.requestFactory.authTokenPost(inlineObject, _options);
+    public authTokenPost(authTokenDeleteRequest: AuthTokenDeleteRequest, _options?: Configuration): Observable<AuthTokenDelete200Response> {
+        const requestContextPromise = this.requestFactory.authTokenPost(authTokenDeleteRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -137,10 +140,10 @@ export class ObservableDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
+     * @param commandSyncPostRequest 
      */
-    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Observable<TransactionResponse> {
-        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, _options);
+    public commandSyncPost(commandSyncPostRequest?: CommandSyncPostRequest, _options?: Configuration): Observable<TransactionResponse> {
+        const requestContextPromise = this.requestFactory.commandSyncPost(commandSyncPostRequest, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -161,7 +164,7 @@ export class ObservableDefaultApi {
     /**
      * List keys
      */
-    public keysGet(_options?: Configuration): Observable<InlineResponse2001> {
+    public keysGet(_options?: Configuration): Observable<KeysGet200Response> {
         const requestContextPromise = this.requestFactory.keysGet(_options);
 
         // build promise chain
@@ -184,7 +187,7 @@ export class ObservableDefaultApi {
      * Describe a key pair
      * @param keyid The public key
      */
-    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<InlineResponse2002> {
+    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<KeysKeyidGet200Response> {
         const requestContextPromise = this.requestFactory.keysKeyidGet(keyid, _options);
 
         // build promise chain
@@ -361,7 +364,7 @@ export class ObservableDefaultApi {
     /**
      * Get the wallet cli version
      */
-    public versionGet(_options?: Configuration): Observable<InlineResponse2003> {
+    public versionGet(_options?: Configuration): Observable<VersionGet200Response> {
         const requestContextPromise = this.requestFactory.versionGet(_options);
 
         // build promise chain

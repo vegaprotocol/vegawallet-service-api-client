@@ -26,3 +26,23 @@ To build and compile the typescript sources to javascript use:
 yarn install
 yarn build
 ```
+
+## Running against local
+
+Run in this repository:
+
+```
+yarn link
+```
+
+And in the consuming repository:
+
+```
+yarn link @vegaprotocol/vegawallet-service-api-client
+```
+
+and you will be able to test your branch.
+
+### NOTE
+
+This will serve from dist so you will need to run `yarn build` after each set of changes you wish to test.

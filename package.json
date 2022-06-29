@@ -16,7 +16,7 @@
     "openapi-generator"
   ],
   "scripts": {
-    "generate": "openapi-generator generate -i ./vegawallet-rest-service.json -g typescript",
+    "generate": "openapi-generator-cli generate -i ./vegawallet-rest-service.json -g typescript",
     "build": "tsc",
     "prepare": "npm run build"
   },

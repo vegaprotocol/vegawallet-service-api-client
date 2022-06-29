@@ -2,19 +2,19 @@
 
 Generated Typescript client that utilizes fetch-api. Code is generated using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)
 
-You will need to [nstall the OpenAPI Generator CLI](https://github.com/OpenAPITools/openapi-generator#1---installation)
+You will need to [install the OpenAPI Generator CLI](https://github.com/OpenAPITools/openapi-generator#1---installation)
 
 ## Generate
 
 To generate the typescript rest client run:
 
-```
+```bash
 openapi-generator generate -i ./vegawallet-rest-service.json -g typescript
 ```
 
 or use the npm script:
 
-```
+```bash
 yarn generate
 ```
 
@@ -22,7 +22,7 @@ yarn generate
 
 To build and compile the typescript sources to javascript use:
 
-```
+```bash
 yarn install
 yarn build
 ```
@@ -31,13 +31,13 @@ yarn build
 
 Run in this repository:
 
-```
+```bash
 yarn link
 ```
 
 And in the consuming repository:
 
-```
+```bash
 yarn link @vegaprotocol/vegawallet-service-api-client
 ```
 

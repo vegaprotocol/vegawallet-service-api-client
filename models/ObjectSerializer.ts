@@ -8,7 +8,7 @@ export * from './GenericErrorErrors';
 export * from './KeysGet200Response';
 export * from './KeysKeyidGet200Response';
 export * from './OrderAmendmentBody';
-export * from './OrderAmendmentBodyOrderSubmission';
+export * from './OrderAmendmentBodyOrderAmendment';
 export * from './OrderCancellationBody';
 export * from './OrderCancellationBodyOrderCancellation';
 export * from './OrderSubmissionBody';
@@ -40,7 +40,7 @@ import { GenericErrorErrors } from './GenericErrorErrors';
 import { KeysGet200Response } from './KeysGet200Response';
 import { KeysKeyidGet200Response } from './KeysKeyidGet200Response';
 import { OrderAmendmentBody } from './OrderAmendmentBody';
-import { OrderAmendmentBodyOrderSubmission } from './OrderAmendmentBodyOrderSubmission';
+import { OrderAmendmentBodyOrderAmendment } from './OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from './OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from './OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from './OrderSubmissionBody';
@@ -97,7 +97,7 @@ let typeMap: {[index: string]: any} = {
     "KeysGet200Response": KeysGet200Response,
     "KeysKeyidGet200Response": KeysKeyidGet200Response,
     "OrderAmendmentBody": OrderAmendmentBody,
-    "OrderAmendmentBodyOrderSubmission": OrderAmendmentBodyOrderSubmission,
+    "OrderAmendmentBodyOrderAmendment": OrderAmendmentBodyOrderAmendment,
     "OrderCancellationBody": OrderCancellationBody,
     "OrderCancellationBodyOrderCancellation": OrderCancellationBodyOrderCancellation,
     "OrderSubmissionBody": OrderSubmissionBody,

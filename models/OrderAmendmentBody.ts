@@ -10,41 +10,46 @@
  * Do not edit the class manually.
  */
 
-import { OrderAmendmentBodyOrderSubmission } from './OrderAmendmentBodyOrderSubmission';
+import { OrderAmendmentBodyOrderAmendment } from "./OrderAmendmentBodyOrderAmendment";
 import { HttpFile } from '../http/http';
 
 export class OrderAmendmentBody {
-    'pubKey': string;
-    'propagate': boolean;
-    'orderSubmission': OrderAmendmentBodyOrderSubmission;
+  "pubKey": string;
+  "propagate": boolean;
+  "orderAmendment"?: OrderAmendmentBodyOrderAmendment;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "pubKey",
-            "baseName": "pubKey",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "propagate",
-            "baseName": "propagate",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "orderSubmission",
-            "baseName": "orderSubmission",
-            "type": "OrderAmendmentBodyOrderSubmission",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "pubKey",
+      baseName: "pubKey",
+      type: "string",
+      format: "",
+    },
+    {
+      name: "propagate",
+      baseName: "propagate",
+      type: "boolean",
+      format: "",
+    },
+    {
+      name: "orderAmendment",
+      baseName: "orderAmendment",
+      type: "OrderAmendmentBodyOrderAmendment",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return OrderAmendmentBody.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return OrderAmendmentBody.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
 

@@ -13,10 +13,11 @@
 import { DelegateSubmissionBody } from './DelegateSubmissionBody';
 import { DelegateSubmissionBodyDelegateSubmission } from './DelegateSubmissionBodyDelegateSubmission';
 import { OrderAmendmentBody } from './OrderAmendmentBody';
-import { OrderAmendmentBodyOrderSubmission } from './OrderAmendmentBodyOrderSubmission';
+import { OrderAmendmentBodyOrderAmendment } from "./OrderAmendmentBodyOrderAmendment";
 import { OrderCancellationBody } from './OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from './OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from './OrderSubmissionBody';
+import { OrderSubmissionBodyOrderSubmission } from "./OrderSubmissionBodyOrderSubmission";
 import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VoteSubmissionBody } from './VoteSubmissionBody';
@@ -26,72 +27,84 @@ import { WithdrawSubmissionBodyWithdrawSubmission } from './WithdrawSubmissionBo
 import { HttpFile } from '../http/http';
 
 export class CommandSyncPostRequest {
-    'pubKey': string;
-    'propagate': boolean;
-    'orderSubmission': OrderAmendmentBodyOrderSubmission;
-    'orderCancellation': OrderCancellationBodyOrderCancellation;
-    'withdrawSubmission': WithdrawSubmissionBodyWithdrawSubmission;
-    'voteSubmission': VoteSubmissionBodyVoteSubmission;
-    'delegateSubmission': DelegateSubmissionBodyDelegateSubmission;
-    'undelegateSubmission': UndelegateSubmissionBodyUndelegateSubmission;
+  "pubKey": string;
+  "propagate": boolean;
+  "orderSubmission": OrderSubmissionBodyOrderSubmission;
+  "orderCancellation": OrderCancellationBodyOrderCancellation;
+  "withdrawSubmission": WithdrawSubmissionBodyWithdrawSubmission;
+  "voteSubmission": VoteSubmissionBodyVoteSubmission;
+  "delegateSubmission": DelegateSubmissionBodyDelegateSubmission;
+  "undelegateSubmission": UndelegateSubmissionBodyUndelegateSubmission;
+  "orderAmendment"?: OrderAmendmentBodyOrderAmendment;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "pubKey",
-            "baseName": "pubKey",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "propagate",
-            "baseName": "propagate",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "orderSubmission",
-            "baseName": "orderSubmission",
-            "type": "OrderAmendmentBodyOrderSubmission",
-            "format": ""
-        },
-        {
-            "name": "orderCancellation",
-            "baseName": "orderCancellation",
-            "type": "OrderCancellationBodyOrderCancellation",
-            "format": ""
-        },
-        {
-            "name": "withdrawSubmission",
-            "baseName": "withdrawSubmission",
-            "type": "WithdrawSubmissionBodyWithdrawSubmission",
-            "format": ""
-        },
-        {
-            "name": "voteSubmission",
-            "baseName": "voteSubmission",
-            "type": "VoteSubmissionBodyVoteSubmission",
-            "format": ""
-        },
-        {
-            "name": "delegateSubmission",
-            "baseName": "delegateSubmission",
-            "type": "DelegateSubmissionBodyDelegateSubmission",
-            "format": ""
-        },
-        {
-            "name": "undelegateSubmission",
-            "baseName": "undelegateSubmission",
-            "type": "UndelegateSubmissionBodyUndelegateSubmission",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "pubKey",
+      baseName: "pubKey",
+      type: "string",
+      format: "",
+    },
+    {
+      name: "propagate",
+      baseName: "propagate",
+      type: "boolean",
+      format: "",
+    },
+    {
+      name: "orderSubmission",
+      baseName: "orderSubmission",
+      type: "OrderSubmissionBodyOrderSubmission",
+      format: "",
+    },
+    {
+      name: "orderCancellation",
+      baseName: "orderCancellation",
+      type: "OrderCancellationBodyOrderCancellation",
+      format: "",
+    },
+    {
+      name: "withdrawSubmission",
+      baseName: "withdrawSubmission",
+      type: "WithdrawSubmissionBodyWithdrawSubmission",
+      format: "",
+    },
+    {
+      name: "voteSubmission",
+      baseName: "voteSubmission",
+      type: "VoteSubmissionBodyVoteSubmission",
+      format: "",
+    },
+    {
+      name: "delegateSubmission",
+      baseName: "delegateSubmission",
+      type: "DelegateSubmissionBodyDelegateSubmission",
+      format: "",
+    },
+    {
+      name: "undelegateSubmission",
+      baseName: "undelegateSubmission",
+      type: "UndelegateSubmissionBodyUndelegateSubmission",
+      format: "",
+    },
+    {
+      name: "orderAmendment",
+      baseName: "orderAmendment",
+      type: "OrderAmendmentBodyOrderAmendment",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return CommandSyncPostRequest.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return CommandSyncPostRequest.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
 

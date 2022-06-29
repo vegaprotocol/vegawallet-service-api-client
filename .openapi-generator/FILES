@@ -20,7 +20,7 @@ models/KeysGet200Response.ts
 models/KeysKeyidGet200Response.ts
 models/ObjectSerializer.ts
 models/OrderAmendmentBody.ts
-models/OrderAmendmentBodyOrderSubmission.ts
+models/OrderAmendmentBodyOrderAmendment.ts
 models/OrderCancellationBody.ts
 models/OrderCancellationBodyOrderCancellation.ts
 models/OrderSubmissionBody.ts

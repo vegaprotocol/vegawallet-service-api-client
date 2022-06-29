@@ -437,7 +437,7 @@
             "type": "boolean",
             "nullable": false
           },
-          "orderSubmission": {
+          "orderAmendment": {
             "nullable": false,
             "type": "object",
             "required": [

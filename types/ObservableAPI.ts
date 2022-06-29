@@ -13,7 +13,7 @@ import { GenericErrorErrors } from '../models/GenericErrorErrors';
 import { KeysGet200Response } from '../models/KeysGet200Response';
 import { KeysKeyidGet200Response } from '../models/KeysKeyidGet200Response';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
-import { OrderAmendmentBodyOrderSubmission } from '../models/OrderAmendmentBodyOrderSubmission';
+import { OrderAmendmentBodyOrderAmendment } from "../models/OrderAmendmentBodyOrderAmendment";
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from '../models/OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';

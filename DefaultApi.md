@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **authTokenPost**
-> AuthTokenDelete200Response authTokenPost(authTokenDeleteRequest)
+> InlineResponse200 authTokenPost(inlineObject)
 
 
 ### Example
@@ -85,8 +85,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiAuthTokenPostRequest = {
-  // AuthTokenDeleteRequest
-  authTokenDeleteRequest: {
+  // InlineObject
+  inlineObject: {
     wallet: "wallet_example",
     passphrase: "passphrase_example",
   },
@@ -102,12 +102,12 @@ apiInstance.authTokenPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authTokenDeleteRequest** | **AuthTokenDeleteRequest**|  |
+ **inlineObject** | **InlineObject**|  |
 
 
 ### Return type
 
-**AuthTokenDelete200Response**
+**InlineResponse200**
 
 ### Authorization
 
@@ -238,8 +238,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiCommandSyncPostRequest = {
-  // CommandSyncPostRequest (optional)
-  commandSyncPostRequest: null,
+  // OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody (optional)
+  orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody: null,
 };
 
 apiInstance.commandSyncPost(body).then((data:any) => {
@@ -252,7 +252,7 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **commandSyncPostRequest** | **CommandSyncPostRequest**|  |
+ **orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody** | **OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody**|  |
 
 
 ### Return type
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **keysGet**
-> KeysGet200Response keysGet()
+> InlineResponse2001 keysGet()
 
 List keys
 
@@ -307,7 +307,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**KeysGet200Response**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -327,7 +327,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **keysKeyidGet**
-> KeysKeyidGet200Response keysKeyidGet()
+> InlineResponse2002 keysKeyidGet()
 
 Describe a key pair
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**KeysKeyidGet200Response**
+**InlineResponse2002**
 
 ### Authorization
 
@@ -728,7 +728,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **versionGet**
-> VersionGet200Response versionGet()
+> InlineResponse2003 versionGet()
 
 Get the wallet cli version
 
@@ -756,7 +756,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**VersionGet200Response**
+**InlineResponse2003**
 
 ### Authorization
 

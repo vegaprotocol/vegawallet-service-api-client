@@ -1,3 +1,4 @@
+// typings for btoa are incorrect
 import { RequestContext } from "../http/http";
 
 /**
@@ -43,7 +44,6 @@ export class BearerAuthentication implements SecurityAuthentication {
 
 
 export type AuthMethods = {
-    "default"?: SecurityAuthentication,
     "bearer"?: SecurityAuthentication
 }
 
@@ -53,7 +53,6 @@ export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
 export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
-    "default"?: SecurityAuthentication,
     "bearer"?: ApiKeyConfiguration
 }
 
@@ -67,7 +66,6 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
     if (!config) {
         return authMethods;
     }
-    authMethods["default"] = config["default"]
 
     if (config["bearer"]) {
         authMethods["bearer"] = new BearerAuthentication(

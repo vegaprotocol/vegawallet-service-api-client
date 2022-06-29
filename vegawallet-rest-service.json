@@ -426,7 +426,7 @@
         "required": [
           "pubKey",
           "propagate",
-          "orderSubmission"
+          "orderAmendment"
         ],
         "properties": {
           "pubKey": {

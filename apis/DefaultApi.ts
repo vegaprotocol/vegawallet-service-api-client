@@ -14,6 +14,7 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
 import { TransactionResponse } from '../models/TransactionResponse';
@@ -122,9 +123,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
+     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody 
      */
-    public async commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Promise<RequestContext> {
+    public async commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -142,7 +143,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, "OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody", ""),
+            ObjectSerializer.serialize(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody, "OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

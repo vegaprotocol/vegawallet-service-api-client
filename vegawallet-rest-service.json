@@ -355,6 +355,65 @@
             }
           }
         }
+      },
+      "OrderAmendmentBody": {
+        "type": "object",
+        "required": [
+          "pubKey",
+          "propagate",
+          "orderAmendment"
+        ],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "orderAmendment": {
+            "nullable": false,
+            "type": "object",
+            "required": [
+              "marketId",
+              "type",
+              "side",
+              "timeInForce",
+              "size"
+            ],
+            "properties": {
+              "marketId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "orderId": {
+                "nullable": false,
+                "type": "string"
+              },
+              "reference": {
+                "nullable": true,
+                "type": "string"
+              },
+              "timeInForce": {
+                "nullable": false,
+                "type": "string"
+              },
+              "sizeDelta": {
+                "nullable": false,
+                "type": "string"
+              },
+              "price": {
+                "nullable": true,
+                "type": "string"
+              },
+              "expiresAt": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -400,7 +459,11 @@
         }
       },
       "delete": {
-        "security": [{ "bearer": [] }],
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Revokes auth token"
@@ -443,7 +506,11 @@
     "/keys": {
       "get": {
         "description": "List keys",
-        "security": [{ "bearer": [] }],
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -565,7 +632,11 @@
     "/command/sync": {
       "post": {
         "description": "Sign a command (sync)",
-        "security": [{ "bearer": [] }],
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -588,6 +659,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/UndelegateSubmissionBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/OrderAmendmentBody"
                   }
                 ]
               }

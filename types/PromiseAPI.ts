@@ -11,6 +11,8 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
+import { OrderAmendmentBodyOrderAmendment } from '../models/OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from '../models/OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
@@ -77,10 +79,10 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody 
+     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody 
      */
-    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody, _options);
+    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody, _options);
         return result.toPromise();
     }
 

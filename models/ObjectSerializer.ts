@@ -7,6 +7,8 @@ export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse2002';
 export * from './InlineResponse2003';
+export * from './OrderAmendmentBody';
+export * from './OrderAmendmentBodyOrderAmendment';
 export * from './OrderCancellationBody';
 export * from './OrderCancellationBodyOrderCancellation';
 export * from './OrderSubmissionBody';
@@ -36,6 +38,8 @@ import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse2002 } from './InlineResponse2002';
 import { InlineResponse2003 } from './InlineResponse2003';
+import { OrderAmendmentBody } from './OrderAmendmentBody';
+import { OrderAmendmentBodyOrderAmendment } from './OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from './OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from './OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from './OrderSubmissionBody';
@@ -90,6 +94,8 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,
     "InlineResponse2003": InlineResponse2003,
+    "OrderAmendmentBody": OrderAmendmentBody,
+    "OrderAmendmentBodyOrderAmendment": OrderAmendmentBodyOrderAmendment,
     "OrderCancellationBody": OrderCancellationBody,
     "OrderCancellationBodyOrderCancellation": OrderCancellationBodyOrderCancellation,
     "OrderSubmissionBody": OrderSubmissionBody,

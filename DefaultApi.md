@@ -238,8 +238,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiCommandSyncPostRequest = {
-  // OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody (optional)
-  orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody: null,
+  // OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody (optional)
+  orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody: null,
 };
 
 apiInstance.commandSyncPost(body).then((data:any) => {
@@ -252,7 +252,7 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBody** | **OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody**|  |
+ **orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody** | **OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody**|  |
 
 
 ### Return type

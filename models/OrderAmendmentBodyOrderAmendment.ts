@@ -17,9 +17,9 @@ export class OrderAmendmentBodyOrderAmendment {
     'orderId'?: string;
     'reference'?: string;
     'timeInForce': string;
-    'sizeDelta'?: string;
-    'price'?: string;
-    'expiresAt'?: string;
+    'sizeDelta'?: number;
+    'price'?: any;
+    'expiresAt'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -51,19 +51,19 @@ export class OrderAmendmentBodyOrderAmendment {
         {
             "name": "sizeDelta",
             "baseName": "sizeDelta",
-            "type": "string",
+            "type": "number",
             "format": ""
         },
         {
             "name": "price",
             "baseName": "price",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {
             "name": "expiresAt",
             "baseName": "expiresAt",
-            "type": "string",
+            "type": "any",
             "format": ""
         }    ];
 

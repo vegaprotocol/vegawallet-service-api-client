@@ -21,7 +21,13 @@
     "schemas": {
       "VegaKey": {
         "type": "object",
-        "required": ["index", "pub", "algorithm", "tainted", "meta"],
+        "required": [
+          "index",
+          "pub",
+          "algorithm",
+          "tainted",
+          "meta"
+        ],
         "properties": {
           "index": {
             "type": "number",
@@ -117,7 +123,11 @@
       },
       "OrderSubmissionBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "orderSubmission"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "orderSubmission"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -130,7 +140,13 @@
           "orderSubmission": {
             "nullable": false,
             "type": "object",
-            "required": ["marketId", "type", "side", "timeInForce", "size"],
+            "required": [
+              "marketId",
+              "type",
+              "side",
+              "timeInForce",
+              "size"
+            ],
             "properties": {
               "marketId": {
                 "nullable": false,
@@ -158,11 +174,11 @@
               },
               "price": {
                 "nullable": true,
-                "type": "string"
+                "type": "object"
               },
               "expiresAt": {
                 "nullable": true,
-                "type": "string"
+                "type": "object"
               }
             }
           }
@@ -170,7 +186,11 @@
       },
       "OrderCancellationBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "orderCancellation"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "orderCancellation"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -183,7 +203,10 @@
           "orderCancellation": {
             "nullable": false,
             "type": "object",
-            "required": ["orderId", "marketId"],
+            "required": [
+              "orderId",
+              "marketId"
+            ],
             "properties": {
               "orderId": {
                 "nullable": false,
@@ -199,7 +222,11 @@
       },
       "WithdrawSubmissionBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "withdrawSubmission"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "withdrawSubmission"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -212,7 +239,11 @@
           "withdrawSubmission": {
             "nullable": false,
             "type": "object",
-            "required": ["amount", "asset", "ext"],
+            "required": [
+              "amount",
+              "asset",
+              "ext"
+            ],
             "properties": {
               "amount": {
                 "nullable": false,
@@ -225,12 +256,16 @@
               "ext": {
                 "nullable": false,
                 "type": "object",
-                "required": ["erc20"],
+                "required": [
+                  "erc20"
+                ],
                 "properties": {
                   "erc20": {
                     "nullable": false,
                     "type": "object",
-                    "required": ["receiverAddress"],
+                    "required": [
+                      "receiverAddress"
+                    ],
                     "properties": {
                       "receiverAddress": {
                         "nullable": false,
@@ -246,7 +281,11 @@
       },
       "VoteSubmissionBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "voteSubmission"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "voteSubmission"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -259,12 +298,18 @@
           "voteSubmission": {
             "nullable": false,
             "type": "object",
-            "required": ["value", "proposalId"],
+            "required": [
+              "value",
+              "proposalId"
+            ],
             "properties": {
               "value": {
                 "nullable": false,
                 "type": "string",
-                "enum": ["VALUE_YES", "VALUE_NO"]
+                "enum": [
+                  "VALUE_YES",
+                  "VALUE_NO"
+                ]
               },
               "proposalId": {
                 "nullable": true,
@@ -276,7 +321,11 @@
       },
       "DelegateSubmissionBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "delegateSubmission"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "delegateSubmission"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -289,7 +338,10 @@
           "delegateSubmission": {
             "nullable": false,
             "type": "object",
-            "required": ["nodeId", "amount"],
+            "required": [
+              "nodeId",
+              "amount"
+            ],
             "properties": {
               "nodeId": {
                 "nullable": false,
@@ -305,7 +357,11 @@
       },
       "UndelegateSubmissionBody": {
         "type": "object",
-        "required": ["pubKey", "propagate", "undelegateSubmission"],
+        "required": [
+          "pubKey",
+          "propagate",
+          "undelegateSubmission"
+        ],
         "properties": {
           "pubKey": {
             "nullable": false,
@@ -318,7 +374,11 @@
           "undelegateSubmission": {
             "nullable": false,
             "type": "object",
-            "required": ["nodeId", "amount", "method"],
+            "required": [
+              "nodeId",
+              "amount",
+              "method"
+            ],
             "properties": {
               "nodeId": {
                 "nullable": false,
@@ -331,7 +391,10 @@
               "method": {
                 "nullable": true,
                 "type": "string",
-                "enum": ["METHOD_NOW", "METHOD_AT_END_OF_EPOCH"]
+                "enum": [
+                  "METHOD_NOW",
+                  "METHOD_AT_END_OF_EPOCH"
+                ]
               }
             }
           }
@@ -339,7 +402,9 @@
       },
       "GenericError": {
         "type": "object",
-        "required": ["errors"],
+        "required": [
+          "errors"
+        ],
         "properties": {
           "errors": {
             "type": "object",
@@ -401,15 +466,21 @@
               },
               "sizeDelta": {
                 "nullable": false,
-                "type": "string"
+                "type": "number"
               },
               "price": {
                 "nullable": true,
-                "type": "string"
+                "type": "object",
+                "required": [
+                  "value"
+                ]
               },
               "expiresAt": {
                 "nullable": true,
-                "type": "string"
+                "type": "object",
+                "required": [
+                  "value"
+                ]
               }
             }
           }
@@ -426,7 +497,10 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["wallet", "passphrase"],
+                "required": [
+                  "wallet",
+                  "passphrase"
+                ],
                 "properties": {
                   "wallet": {
                     "type": "string"
@@ -446,7 +520,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["token"],
+                  "required": [
+                    "token"
+                  ],
                   "properties": {
                     "token": {
                       "type": "string"
@@ -518,7 +594,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["keys"],
+                  "required": [
+                    "keys"
+                  ],
                   "properties": {
                     "keys": {
                       "type": "array",
@@ -563,7 +641,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["key"],
+                  "required": [
+                    "key"
+                  ],
                   "properties": {
                     "key": {
                       "nullable": false,
@@ -745,7 +825,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["version", "versionHash"],
+                  "required": [
+                    "version",
+                    "versionHash"
+                  ],
                   "properties": {
                     "version": {
                       "type": "string"

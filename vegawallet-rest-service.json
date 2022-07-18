@@ -174,11 +174,11 @@
               },
               "price": {
                 "nullable": true,
-                "type": "object"
+                "type": "string"
               },
               "expiresAt": {
                 "nullable": true,
-                "type": "object"
+                "type": "string"
               }
             }
           }

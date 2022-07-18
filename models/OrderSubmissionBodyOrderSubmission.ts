@@ -19,8 +19,8 @@ export class OrderSubmissionBodyOrderSubmission {
     'side': string;
     'timeInForce': string;
     'size': string;
-    'price'?: any;
-    'expiresAt'?: any;
+    'price'?: string;
+    'expiresAt'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -64,13 +64,13 @@ export class OrderSubmissionBodyOrderSubmission {
         {
             "name": "price",
             "baseName": "price",
-            "type": "any",
+            "type": "string",
             "format": ""
         },
         {
             "name": "expiresAt",
             "baseName": "expiresAt",
-            "type": "any",
+            "type": "string",
             "format": ""
         }    ];
 

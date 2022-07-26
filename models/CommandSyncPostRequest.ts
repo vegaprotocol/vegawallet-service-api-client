@@ -38,7 +38,7 @@ export class CommandSyncPostRequest {
     'delegateSubmission': DelegateSubmissionBodyDelegateSubmission;
     'undelegateSubmission': UndelegateSubmissionBodyUndelegateSubmission;
     'orderAmendment': OrderAmendmentBodyOrderAmendment;
-    'transfer'?: TransferSubmissionBodyTransfer;
+    'transfer': TransferSubmissionBodyTransfer;
 
     static readonly discriminator: string | undefined = undefined;
 

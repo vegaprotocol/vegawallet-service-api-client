@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 export class TransferSubmissionBody {
     'pubKey': string;
     'propagate': boolean;
-    'transfer'?: TransferSubmissionBodyTransfer;
+    'transfer': TransferSubmissionBodyTransfer;
 
     static readonly discriminator: string | undefined = undefined;
 

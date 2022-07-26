@@ -405,7 +405,7 @@
         "required": [
           "pubKey",
           "propagate",
-          "undelegateSubmission"
+          "transfer"
         ],
         "properties": {
           "pubKey": {

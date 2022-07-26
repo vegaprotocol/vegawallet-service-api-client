@@ -485,6 +485,93 @@
             }
           }
         }
+      },
+      "NetworkConfig": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "tokenExpiry": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "host": {
+            "type": "string"
+          },
+          "api": {
+            "type": "object",
+            "properties": {
+              "grpc": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "retries": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "rest": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "graphQl": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tokenDApp": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "localPort": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "console": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "localPort": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -551,9 +638,22 @@
       "get": {
         "responses": {
           "200": {
-            "description": "TODO",
+            "description": "Success",
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "network"
+                  ],
+                  "properties": {
+                    "network": {
+                      "nullable": false,
+                      "$ref": "#/components/schemas/NetworkConfig"
+                    }
+                  }
+                }
+              }
             }
           }
         }

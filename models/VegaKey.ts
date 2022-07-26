@@ -11,7 +11,7 @@
  */
 
 import { VegaKeyAlgorithm } from './VegaKeyAlgorithm';
-import { VegaKeyMeta } from './VegaKeyMeta';
+import { VegaKeyMetaInner } from './VegaKeyMetaInner';
 import { HttpFile } from '../http/http';
 
 export class VegaKey {
@@ -19,7 +19,7 @@ export class VegaKey {
     'pub': string;
     'algorithm': VegaKeyAlgorithm;
     'tainted': boolean;
-    'meta': Array<VegaKeyMeta>;
+    'meta': Array<VegaKeyMetaInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -51,7 +51,7 @@ export class VegaKey {
         {
             "name": "meta",
             "baseName": "meta",
-            "type": "Array<VegaKeyMeta>",
+            "type": "Array<VegaKeyMetaInner>",
             "format": ""
         }    ];
 

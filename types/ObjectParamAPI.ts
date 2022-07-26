@@ -2,15 +2,21 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { AuthTokenDelete200Response } from '../models/AuthTokenDelete200Response';
+import { AuthTokenDeleteRequest } from '../models/AuthTokenDeleteRequest';
+import { CommandSyncPostRequest } from '../models/CommandSyncPostRequest';
 import { DelegateSubmissionBody } from '../models/DelegateSubmissionBody';
 import { DelegateSubmissionBodyDelegateSubmission } from '../models/DelegateSubmissionBodyDelegateSubmission';
 import { GenericError } from '../models/GenericError';
 import { GenericErrorErrors } from '../models/GenericErrorErrors';
-import { InlineObject } from '../models/InlineObject';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse2002 } from '../models/InlineResponse2002';
-import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { KeysGet200Response } from '../models/KeysGet200Response';
+import { KeysKeyidGet200Response } from '../models/KeysKeyidGet200Response';
+import { NetworkConfig } from '../models/NetworkConfig';
+import { NetworkConfigApi } from '../models/NetworkConfigApi';
+import { NetworkConfigApiGrpc } from '../models/NetworkConfigApiGrpc';
+import { NetworkConfigApiRest } from '../models/NetworkConfigApiRest';
+import { NetworkConfigTokenDApp } from '../models/NetworkConfigTokenDApp';
+import { NetworkGet200Response } from '../models/NetworkGet200Response';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderAmendmentBodyOrderAmendment } from '../models/OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
@@ -25,7 +31,8 @@ import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
 import { VegaKeyAlgorithm } from '../models/VegaKeyAlgorithm';
-import { VegaKeyMeta } from '../models/VegaKeyMeta';
+import { VegaKeyMetaInner } from '../models/VegaKeyMetaInner';
+import { VersionGet200Response } from '../models/VersionGet200Response';
 import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
 import { VoteSubmissionBodyVoteSubmission } from '../models/VoteSubmissionBodyVoteSubmission';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
@@ -42,10 +49,10 @@ export interface DefaultApiAuthTokenDeleteRequest {
 export interface DefaultApiAuthTokenPostRequest {
     /**
      * 
-     * @type InlineObject
+     * @type AuthTokenDeleteRequest
      * @memberof DefaultApiauthTokenPost
      */
-    inlineObject: InlineObject
+    authTokenDeleteRequest: AuthTokenDeleteRequest
 }
 
 export interface DefaultApiCommandCommitPostRequest {
@@ -57,10 +64,10 @@ export interface DefaultApiCommandPostRequest {
 export interface DefaultApiCommandSyncPostRequest {
     /**
      * 
-     * @type OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody
+     * @type CommandSyncPostRequest
      * @memberof DefaultApicommandSyncPost
      */
-    orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody
+    commandSyncPostRequest?: CommandSyncPostRequest
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -127,22 +134,22 @@ export class ObjectDefaultApi {
     /**
      * @param param the request object
      */
-    public authTokenDelete(param: DefaultApiAuthTokenDeleteRequest, options?: Configuration): Promise<void> {
+    public authTokenDelete(param: DefaultApiAuthTokenDeleteRequest = {}, options?: Configuration): Promise<void> {
         return this.api.authTokenDelete( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authTokenPost(param: DefaultApiAuthTokenPostRequest, options?: Configuration): Promise<InlineResponse200> {
-        return this.api.authTokenPost(param.inlineObject,  options).toPromise();
+    public authTokenPost(param: DefaultApiAuthTokenPostRequest, options?: Configuration): Promise<AuthTokenDelete200Response> {
+        return this.api.authTokenPost(param.authTokenDeleteRequest,  options).toPromise();
     }
 
     /**
      * Sign a command (commit)
      * @param param the request object
      */
-    public commandCommitPost(param: DefaultApiCommandCommitPostRequest, options?: Configuration): Promise<void> {
+    public commandCommitPost(param: DefaultApiCommandCommitPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.commandCommitPost( options).toPromise();
     }
 
@@ -150,7 +157,7 @@ export class ObjectDefaultApi {
      * Sign a command
      * @param param the request object
      */
-    public commandPost(param: DefaultApiCommandPostRequest, options?: Configuration): Promise<void> {
+    public commandPost(param: DefaultApiCommandPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.commandPost( options).toPromise();
     }
 
@@ -158,15 +165,15 @@ export class ObjectDefaultApi {
      * Sign a command (sync)
      * @param param the request object
      */
-    public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost(param.orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody,  options).toPromise();
+    public commandSyncPost(param: DefaultApiCommandSyncPostRequest = {}, options?: Configuration): Promise<TransactionResponse> {
+        return this.api.commandSyncPost(param.commandSyncPostRequest,  options).toPromise();
     }
 
     /**
      * List keys
      * @param param the request object
      */
-    public keysGet(param: DefaultApiKeysGetRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public keysGet(param: DefaultApiKeysGetRequest = {}, options?: Configuration): Promise<KeysGet200Response> {
         return this.api.keysGet( options).toPromise();
     }
 
@@ -174,7 +181,7 @@ export class ObjectDefaultApi {
      * Describe a key pair
      * @param param the request object
      */
-    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<InlineResponse2002> {
+    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<KeysKeyidGet200Response> {
         return this.api.keysKeyidGet(param.keyid,  options).toPromise();
     }
 
@@ -198,14 +205,14 @@ export class ObjectDefaultApi {
      * Generate a key pair
      * @param param the request object
      */
-    public keysPost(param: DefaultApiKeysPostRequest, options?: Configuration): Promise<void> {
+    public keysPost(param: DefaultApiKeysPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.keysPost( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public networkGet(param: DefaultApiNetworkGetRequest, options?: Configuration): Promise<void> {
+    public networkGet(param: DefaultApiNetworkGetRequest = {}, options?: Configuration): Promise<NetworkGet200Response> {
         return this.api.networkGet( options).toPromise();
     }
 
@@ -213,7 +220,7 @@ export class ObjectDefaultApi {
      * Sign data
      * @param param the request object
      */
-    public signPost(param: DefaultApiSignPostRequest, options?: Configuration): Promise<void> {
+    public signPost(param: DefaultApiSignPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.signPost( options).toPromise();
     }
 
@@ -221,7 +228,7 @@ export class ObjectDefaultApi {
      * Get the service status
      * @param param the request object
      */
-    public statusGet(param: DefaultApiStatusGetRequest, options?: Configuration): Promise<void> {
+    public statusGet(param: DefaultApiStatusGetRequest = {}, options?: Configuration): Promise<void> {
         return this.api.statusGet( options).toPromise();
     }
 
@@ -229,7 +236,7 @@ export class ObjectDefaultApi {
      * Verify data
      * @param param the request object
      */
-    public verifyPost(param: DefaultApiVerifyPostRequest, options?: Configuration): Promise<void> {
+    public verifyPost(param: DefaultApiVerifyPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.verifyPost( options).toPromise();
     }
 
@@ -237,7 +244,7 @@ export class ObjectDefaultApi {
      * Get the wallet cli version
      * @param param the request object
      */
-    public versionGet(param: DefaultApiVersionGetRequest, options?: Configuration): Promise<InlineResponse2003> {
+    public versionGet(param: DefaultApiVersionGetRequest = {}, options?: Configuration): Promise<VersionGet200Response> {
         return this.api.versionGet( options).toPromise();
     }
 
@@ -245,7 +252,7 @@ export class ObjectDefaultApi {
      * Import a wallet
      * @param param the request object
      */
-    public walletsImportPost(param: DefaultApiWalletsImportPostRequest, options?: Configuration): Promise<void> {
+    public walletsImportPost(param: DefaultApiWalletsImportPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.walletsImportPost( options).toPromise();
     }
 
@@ -253,7 +260,7 @@ export class ObjectDefaultApi {
      * Create a wallet
      * @param param the request object
      */
-    public walletsPost(param: DefaultApiWalletsPostRequest, options?: Configuration): Promise<void> {
+    public walletsPost(param: DefaultApiWalletsPostRequest = {}, options?: Configuration): Promise<void> {
         return this.api.walletsPost( options).toPromise();
     }
 

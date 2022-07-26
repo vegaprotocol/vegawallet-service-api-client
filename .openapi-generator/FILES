@@ -18,6 +18,12 @@ models/InlineResponse200.ts
 models/InlineResponse2001.ts
 models/InlineResponse2002.ts
 models/InlineResponse2003.ts
+models/InlineResponse2004.ts
+models/NetworkConfig.ts
+models/NetworkConfigApi.ts
+models/NetworkConfigApiGrpc.ts
+models/NetworkConfigApiRest.ts
+models/NetworkConfigTokenDApp.ts
 models/ObjectSerializer.ts
 models/OrderAmendmentBody.ts
 models/OrderAmendmentBodyOrderAmendment.ts
@@ -29,6 +35,9 @@ models/TransactionResponse.ts
 models/TransactionResponseTx.ts
 models/TransactionResponseTxFrom.ts
 models/TransactionResponseTxSignature.ts
+models/TransferSubmissionBody.ts
+models/TransferSubmissionBodyTransfer.ts
+models/TransferSubmissionBodyTransferOneOff.ts
 models/UndelegateSubmissionBody.ts
 models/UndelegateSubmissionBodyUndelegateSubmission.ts
 models/VegaKey.ts

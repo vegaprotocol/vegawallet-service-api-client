@@ -10,24 +10,23 @@
  * Do not edit the class manually.
  */
 
-import { NetworkConfig } from './NetworkConfig';
 import { HttpFile } from '../http/http';
 
-export class InlineResponse2001 {
-    'network': NetworkConfig;
+export class TransferSubmissionBodyTransferOneOff {
+    'deliverOn': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "network",
-            "baseName": "network",
-            "type": "NetworkConfig",
+            "name": "deliverOn",
+            "baseName": "deliverOn",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse2001.attributeTypeMap;
+        return TransferSubmissionBodyTransferOneOff.attributeTypeMap;
     }
 
     public constructor() {

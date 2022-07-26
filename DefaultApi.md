@@ -238,8 +238,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiCommandSyncPostRequest = {
-  // OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody (optional)
-  orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody: null,
+  // OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody (optional)
+  orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody: null,
 };
 
 apiInstance.commandSyncPost(body).then((data:any) => {
@@ -252,7 +252,7 @@ apiInstance.commandSyncPost(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody** | **OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody**|  |
+ **orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody** | **OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody**|  |
 
 
 ### Return type
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **keysGet**
-> InlineResponse2001 keysGet()
+> InlineResponse2002 keysGet()
 
 List keys
 
@@ -307,7 +307,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**InlineResponse2001**
+**InlineResponse2002**
 
 ### Authorization
 
@@ -327,7 +327,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **keysKeyidGet**
-> InlineResponse2002 keysKeyidGet()
+> InlineResponse2003 keysKeyidGet()
 
 Describe a key pair
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2002**
+**InlineResponse2003**
 
 ### Authorization
 
@@ -537,7 +537,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **networkGet**
-> void networkGet()
+> InlineResponse2001 networkGet()
 
 
 ### Example
@@ -564,7 +564,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**void**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -579,7 +579,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | TODO |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -728,7 +728,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **versionGet**
-> InlineResponse2003 versionGet()
+> InlineResponse2004 versionGet()
 
 Get the wallet cli version
 
@@ -756,7 +756,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**InlineResponse2003**
+**InlineResponse2004**
 
 ### Authorization
 

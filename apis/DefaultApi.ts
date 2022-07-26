@@ -14,10 +14,12 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { InlineResponse2004 } from '../models/InlineResponse2004';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
 import { OrderSubmissionBody } from '../models/OrderSubmissionBody';
 import { TransactionResponse } from '../models/TransactionResponse';
+import { TransferSubmissionBody } from '../models/TransferSubmissionBody';
 import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { VoteSubmissionBody } from '../models/VoteSubmissionBody';
 import { WithdrawSubmissionBody } from '../models/WithdrawSubmissionBody';
@@ -123,9 +125,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody 
+     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody 
      */
-    public async commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody, _options?: Configuration): Promise<RequestContext> {
+    public async commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -143,7 +145,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody, "OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody", ""),
+            ObjectSerializer.serialize(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody, "OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -557,22 +559,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to keysGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async keysGet(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async keysGet(response: ResponseContext): Promise<InlineResponse2002 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
             return body;
         }
 
@@ -586,22 +588,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to keysKeyidGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async keysKeyidGet(response: ResponseContext): Promise<InlineResponse2002 > {
+     public async keysKeyidGet(response: ResponseContext): Promise<InlineResponse2003 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: InlineResponse2003 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "InlineResponse2003", ""
+            ) as InlineResponse2003;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: InlineResponse2003 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "InlineResponse2003", ""
+            ) as InlineResponse2003;
             return body;
         }
 
@@ -690,18 +692,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to networkGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async networkGet(response: ResponseContext): Promise<void > {
+     public async networkGet(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
+            return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -790,22 +796,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to versionGet
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async versionGet(response: ResponseContext): Promise<InlineResponse2003 > {
+     public async versionGet(response: ResponseContext): Promise<InlineResponse2004 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2003 = ObjectSerializer.deserialize(
+            const body: InlineResponse2004 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2003", ""
-            ) as InlineResponse2003;
+                "InlineResponse2004", ""
+            ) as InlineResponse2004;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2003 = ObjectSerializer.deserialize(
+            const body: InlineResponse2004 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2003", ""
-            ) as InlineResponse2003;
+                "InlineResponse2004", ""
+            ) as InlineResponse2004;
             return body;
         }
 

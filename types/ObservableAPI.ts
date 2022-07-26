@@ -12,6 +12,12 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { InlineResponse2004 } from '../models/InlineResponse2004';
+import { NetworkConfig } from '../models/NetworkConfig';
+import { NetworkConfigApi } from '../models/NetworkConfigApi';
+import { NetworkConfigApiGrpc } from '../models/NetworkConfigApiGrpc';
+import { NetworkConfigApiRest } from '../models/NetworkConfigApiRest';
+import { NetworkConfigTokenDApp } from '../models/NetworkConfigTokenDApp';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderAmendmentBodyOrderAmendment } from '../models/OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
@@ -22,6 +28,9 @@ import { TransactionResponse } from '../models/TransactionResponse';
 import { TransactionResponseTx } from '../models/TransactionResponseTx';
 import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from '../models/TransactionResponseTxSignature';
+import { TransferSubmissionBody } from '../models/TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from '../models/TransferSubmissionBodyTransfer';
+import { TransferSubmissionBodyTransferOneOff } from '../models/TransferSubmissionBodyTransferOneOff';
 import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
@@ -139,10 +148,10 @@ export class ObservableDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody 
+     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody 
      */
-    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody, _options?: Configuration): Observable<TransactionResponse> {
-        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody, _options);
+    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody, _options?: Configuration): Observable<TransactionResponse> {
+        const requestContextPromise = this.requestFactory.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -163,7 +172,7 @@ export class ObservableDefaultApi {
     /**
      * List keys
      */
-    public keysGet(_options?: Configuration): Observable<InlineResponse2001> {
+    public keysGet(_options?: Configuration): Observable<InlineResponse2002> {
         const requestContextPromise = this.requestFactory.keysGet(_options);
 
         // build promise chain
@@ -186,7 +195,7 @@ export class ObservableDefaultApi {
      * Describe a key pair
      * @param keyid The public key
      */
-    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<InlineResponse2002> {
+    public keysKeyidGet(keyid: string, _options?: Configuration): Observable<InlineResponse2003> {
         const requestContextPromise = this.requestFactory.keysKeyidGet(keyid, _options);
 
         // build promise chain
@@ -275,7 +284,7 @@ export class ObservableDefaultApi {
 
     /**
      */
-    public networkGet(_options?: Configuration): Observable<void> {
+    public networkGet(_options?: Configuration): Observable<InlineResponse2001> {
         const requestContextPromise = this.requestFactory.networkGet(_options);
 
         // build promise chain
@@ -363,7 +372,7 @@ export class ObservableDefaultApi {
     /**
      * Get the wallet cli version
      */
-    public versionGet(_options?: Configuration): Observable<InlineResponse2003> {
+    public versionGet(_options?: Configuration): Observable<InlineResponse2004> {
         const requestContextPromise = this.requestFactory.versionGet(_options);
 
         // build promise chain

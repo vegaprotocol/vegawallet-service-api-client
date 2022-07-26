@@ -11,6 +11,12 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { InlineResponse2004 } from '../models/InlineResponse2004';
+import { NetworkConfig } from '../models/NetworkConfig';
+import { NetworkConfigApi } from '../models/NetworkConfigApi';
+import { NetworkConfigApiGrpc } from '../models/NetworkConfigApiGrpc';
+import { NetworkConfigApiRest } from '../models/NetworkConfigApiRest';
+import { NetworkConfigTokenDApp } from '../models/NetworkConfigTokenDApp';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderAmendmentBodyOrderAmendment } from '../models/OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
@@ -21,6 +27,9 @@ import { TransactionResponse } from '../models/TransactionResponse';
 import { TransactionResponseTx } from '../models/TransactionResponseTx';
 import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from '../models/TransactionResponseTxSignature';
+import { TransferSubmissionBody } from '../models/TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from '../models/TransferSubmissionBodyTransfer';
+import { TransferSubmissionBodyTransferOneOff } from '../models/TransferSubmissionBodyTransferOneOff';
 import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
@@ -57,10 +66,10 @@ export interface DefaultApiCommandPostRequest {
 export interface DefaultApiCommandSyncPostRequest {
     /**
      * 
-     * @type OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody
+     * @type OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody
      * @memberof DefaultApicommandSyncPost
      */
-    orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody
+    orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody
 }
 
 export interface DefaultApiKeysGetRequest {
@@ -159,14 +168,14 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public commandSyncPost(param: DefaultApiCommandSyncPostRequest, options?: Configuration): Promise<TransactionResponse> {
-        return this.api.commandSyncPost(param.orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody,  options).toPromise();
+        return this.api.commandSyncPost(param.orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody,  options).toPromise();
     }
 
     /**
      * List keys
      * @param param the request object
      */
-    public keysGet(param: DefaultApiKeysGetRequest, options?: Configuration): Promise<InlineResponse2001> {
+    public keysGet(param: DefaultApiKeysGetRequest, options?: Configuration): Promise<InlineResponse2002> {
         return this.api.keysGet( options).toPromise();
     }
 
@@ -174,7 +183,7 @@ export class ObjectDefaultApi {
      * Describe a key pair
      * @param param the request object
      */
-    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<InlineResponse2002> {
+    public keysKeyidGet(param: DefaultApiKeysKeyidGetRequest, options?: Configuration): Promise<InlineResponse2003> {
         return this.api.keysKeyidGet(param.keyid,  options).toPromise();
     }
 
@@ -205,7 +214,7 @@ export class ObjectDefaultApi {
     /**
      * @param param the request object
      */
-    public networkGet(param: DefaultApiNetworkGetRequest, options?: Configuration): Promise<void> {
+    public networkGet(param: DefaultApiNetworkGetRequest, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.networkGet( options).toPromise();
     }
 
@@ -237,7 +246,7 @@ export class ObjectDefaultApi {
      * Get the wallet cli version
      * @param param the request object
      */
-    public versionGet(param: DefaultApiVersionGetRequest, options?: Configuration): Promise<InlineResponse2003> {
+    public versionGet(param: DefaultApiVersionGetRequest, options?: Configuration): Promise<InlineResponse2004> {
         return this.api.versionGet( options).toPromise();
     }
 

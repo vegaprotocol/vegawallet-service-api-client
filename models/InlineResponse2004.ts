@@ -10,24 +10,30 @@
  * Do not edit the class manually.
  */
 
-import { NetworkConfig } from './NetworkConfig';
 import { HttpFile } from '../http/http';
 
-export class InlineResponse2001 {
-    'network': NetworkConfig;
+export class InlineResponse2004 {
+    'version': string;
+    'versionHash': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "network",
-            "baseName": "network",
-            "type": "NetworkConfig",
+            "name": "version",
+            "baseName": "version",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "versionHash",
+            "baseName": "versionHash",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse2001.attributeTypeMap;
+        return InlineResponse2004.attributeTypeMap;
     }
 
     public constructor() {

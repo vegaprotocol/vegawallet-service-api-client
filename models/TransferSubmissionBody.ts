@@ -10,24 +10,38 @@
  * Do not edit the class manually.
  */
 
-import { NetworkConfig } from './NetworkConfig';
+import { TransferSubmissionBodyTransfer } from './TransferSubmissionBodyTransfer';
 import { HttpFile } from '../http/http';
 
-export class InlineResponse2001 {
-    'network': NetworkConfig;
+export class TransferSubmissionBody {
+    'pubKey': string;
+    'propagate': boolean;
+    'transfer': TransferSubmissionBodyTransfer;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "network",
-            "baseName": "network",
-            "type": "NetworkConfig",
+            "name": "pubKey",
+            "baseName": "pubKey",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "propagate",
+            "baseName": "propagate",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "transfer",
+            "baseName": "transfer",
+            "type": "TransferSubmissionBodyTransfer",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse2001.attributeTypeMap;
+        return TransferSubmissionBody.attributeTypeMap;
     }
 
     public constructor() {

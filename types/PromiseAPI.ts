@@ -11,6 +11,12 @@ import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
+import { InlineResponse2004 } from '../models/InlineResponse2004';
+import { NetworkConfig } from '../models/NetworkConfig';
+import { NetworkConfigApi } from '../models/NetworkConfigApi';
+import { NetworkConfigApiGrpc } from '../models/NetworkConfigApiGrpc';
+import { NetworkConfigApiRest } from '../models/NetworkConfigApiRest';
+import { NetworkConfigTokenDApp } from '../models/NetworkConfigTokenDApp';
 import { OrderAmendmentBody } from '../models/OrderAmendmentBody';
 import { OrderAmendmentBodyOrderAmendment } from '../models/OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from '../models/OrderCancellationBody';
@@ -21,6 +27,9 @@ import { TransactionResponse } from '../models/TransactionResponse';
 import { TransactionResponseTx } from '../models/TransactionResponseTx';
 import { TransactionResponseTxFrom } from '../models/TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from '../models/TransactionResponseTxSignature';
+import { TransferSubmissionBody } from '../models/TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from '../models/TransferSubmissionBodyTransfer';
+import { TransferSubmissionBodyTransferOneOff } from '../models/TransferSubmissionBodyTransferOneOff';
 import { UndelegateSubmissionBody } from '../models/UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from '../models/UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from '../models/VegaKey';
@@ -79,17 +88,17 @@ export class PromiseDefaultApi {
 
     /**
      * Sign a command (sync)
-     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody 
+     * @param orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody 
      */
-    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody, _options?: Configuration): Promise<TransactionResponse> {
-        const result = this.api.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBody, _options);
+    public commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody?: OrderSubmissionBody | OrderCancellationBody | WithdrawSubmissionBody | VoteSubmissionBody | DelegateSubmissionBody | UndelegateSubmissionBody | OrderAmendmentBody | TransferSubmissionBody, _options?: Configuration): Promise<TransactionResponse> {
+        const result = this.api.commandSyncPost(orderSubmissionBodyOrderCancellationBodyWithdrawSubmissionBodyVoteSubmissionBodyDelegateSubmissionBodyUndelegateSubmissionBodyOrderAmendmentBodyTransferSubmissionBody, _options);
         return result.toPromise();
     }
 
     /**
      * List keys
      */
-    public keysGet(_options?: Configuration): Promise<InlineResponse2001> {
+    public keysGet(_options?: Configuration): Promise<InlineResponse2002> {
         const result = this.api.keysGet(_options);
         return result.toPromise();
     }
@@ -98,7 +107,7 @@ export class PromiseDefaultApi {
      * Describe a key pair
      * @param keyid The public key
      */
-    public keysKeyidGet(keyid: string, _options?: Configuration): Promise<InlineResponse2002> {
+    public keysKeyidGet(keyid: string, _options?: Configuration): Promise<InlineResponse2003> {
         const result = this.api.keysKeyidGet(keyid, _options);
         return result.toPromise();
     }
@@ -131,7 +140,7 @@ export class PromiseDefaultApi {
 
     /**
      */
-    public networkGet(_options?: Configuration): Promise<void> {
+    public networkGet(_options?: Configuration): Promise<InlineResponse2001> {
         const result = this.api.networkGet(_options);
         return result.toPromise();
     }
@@ -163,7 +172,7 @@ export class PromiseDefaultApi {
     /**
      * Get the wallet cli version
      */
-    public versionGet(_options?: Configuration): Promise<InlineResponse2003> {
+    public versionGet(_options?: Configuration): Promise<InlineResponse2004> {
         const result = this.api.versionGet(_options);
         return result.toPromise();
     }

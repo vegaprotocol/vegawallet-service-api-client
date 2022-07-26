@@ -14,15 +14,15 @@ import { VegaKey } from './VegaKey';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2002 {
-    'key': VegaKey;
+    'keys': Array<VegaKey>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "key",
-            "baseName": "key",
-            "type": "VegaKey",
+            "name": "keys",
+            "baseName": "keys",
+            "type": "Array<VegaKey>",
             "format": ""
         }    ];
 

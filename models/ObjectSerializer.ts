@@ -7,6 +7,12 @@ export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse2002';
 export * from './InlineResponse2003';
+export * from './InlineResponse2004';
+export * from './NetworkConfig';
+export * from './NetworkConfigApi';
+export * from './NetworkConfigApiGrpc';
+export * from './NetworkConfigApiRest';
+export * from './NetworkConfigTokenDApp';
 export * from './OrderAmendmentBody';
 export * from './OrderAmendmentBodyOrderAmendment';
 export * from './OrderCancellationBody';
@@ -17,6 +23,9 @@ export * from './TransactionResponse';
 export * from './TransactionResponseTx';
 export * from './TransactionResponseTxFrom';
 export * from './TransactionResponseTxSignature';
+export * from './TransferSubmissionBody';
+export * from './TransferSubmissionBodyTransfer';
+export * from './TransferSubmissionBodyTransferOneOff';
 export * from './UndelegateSubmissionBody';
 export * from './UndelegateSubmissionBodyUndelegateSubmission';
 export * from './VegaKey';
@@ -38,6 +47,12 @@ import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse2002 } from './InlineResponse2002';
 import { InlineResponse2003 } from './InlineResponse2003';
+import { InlineResponse2004 } from './InlineResponse2004';
+import { NetworkConfig } from './NetworkConfig';
+import { NetworkConfigApi } from './NetworkConfigApi';
+import { NetworkConfigApiGrpc } from './NetworkConfigApiGrpc';
+import { NetworkConfigApiRest } from './NetworkConfigApiRest';
+import { NetworkConfigTokenDApp } from './NetworkConfigTokenDApp';
 import { OrderAmendmentBody } from './OrderAmendmentBody';
 import { OrderAmendmentBodyOrderAmendment } from './OrderAmendmentBodyOrderAmendment';
 import { OrderCancellationBody } from './OrderCancellationBody';
@@ -48,6 +63,9 @@ import { TransactionResponse } from './TransactionResponse';
 import { TransactionResponseTx } from './TransactionResponseTx';
 import { TransactionResponseTxFrom } from './TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from './TransactionResponseTxSignature';
+import { TransferSubmissionBody } from './TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from './TransferSubmissionBodyTransfer';
+import { TransferSubmissionBodyTransferOneOff } from './TransferSubmissionBodyTransferOneOff';
 import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission  , UndelegateSubmissionBodyUndelegateSubmissionMethodEnum   } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from './VegaKey';
@@ -94,6 +112,12 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,
     "InlineResponse2003": InlineResponse2003,
+    "InlineResponse2004": InlineResponse2004,
+    "NetworkConfig": NetworkConfig,
+    "NetworkConfigApi": NetworkConfigApi,
+    "NetworkConfigApiGrpc": NetworkConfigApiGrpc,
+    "NetworkConfigApiRest": NetworkConfigApiRest,
+    "NetworkConfigTokenDApp": NetworkConfigTokenDApp,
     "OrderAmendmentBody": OrderAmendmentBody,
     "OrderAmendmentBodyOrderAmendment": OrderAmendmentBodyOrderAmendment,
     "OrderCancellationBody": OrderCancellationBody,
@@ -104,6 +128,9 @@ let typeMap: {[index: string]: any} = {
     "TransactionResponseTx": TransactionResponseTx,
     "TransactionResponseTxFrom": TransactionResponseTxFrom,
     "TransactionResponseTxSignature": TransactionResponseTxSignature,
+    "TransferSubmissionBody": TransferSubmissionBody,
+    "TransferSubmissionBodyTransfer": TransferSubmissionBodyTransfer,
+    "TransferSubmissionBodyTransferOneOff": TransferSubmissionBodyTransferOneOff,
     "UndelegateSubmissionBody": UndelegateSubmissionBody,
     "UndelegateSubmissionBodyUndelegateSubmission": UndelegateSubmissionBodyUndelegateSubmission,
     "VegaKey": VegaKey,

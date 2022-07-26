@@ -400,6 +400,70 @@
           }
         }
       },
+      "TransferSubmissionBody": {
+        "type": "object",
+        "required": [
+          "pubKey",
+          "propagate",
+          "undelegateSubmission"
+        ],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "transfer": {
+            "nullable": false,
+            "type": "object",
+            "required": [
+              "fromAccountType",
+              "toAccountType",
+              "to",
+              "asset",
+              "amount"
+            ],
+            "properties": {
+              "fromAccountType": {
+                "nullable": false,
+                "type": "string"
+              },
+              "toAccountType": {
+                "nullable": false,
+                "type": "string"
+              },
+              "to": {
+                "nullable": false,
+                "type": "string"
+              },
+              "amount": {
+                "nullable": true,
+                "type": "string"
+              },
+              "asset": {
+                "nullable": true,
+                "type": "string"
+              },
+              "oneOff": {
+                "nullable": false,
+                "type": "object",
+                "required": [
+                  "deliverOn"
+                ],
+                "properties": {
+                  "deliverOn": {
+                    "nullable": false,
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "GenericError": {
         "type": "object",
         "required": [
@@ -842,6 +906,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/OrderAmendmentBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/TransferSubmissionBody"
                   }
                 ]
               }

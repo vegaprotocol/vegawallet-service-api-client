@@ -23,6 +23,9 @@ export * from './TransactionResponse';
 export * from './TransactionResponseTx';
 export * from './TransactionResponseTxFrom';
 export * from './TransactionResponseTxSignature';
+export * from './TransferSubmissionBody';
+export * from './TransferSubmissionBodyTransfer';
+export * from './TransferSubmissionBodyTransferOneOff';
 export * from './UndelegateSubmissionBody';
 export * from './UndelegateSubmissionBodyUndelegateSubmission';
 export * from './VegaKey';
@@ -61,6 +64,9 @@ import { TransactionResponse } from './TransactionResponse';
 import { TransactionResponseTx } from './TransactionResponseTx';
 import { TransactionResponseTxFrom } from './TransactionResponseTxFrom';
 import { TransactionResponseTxSignature } from './TransactionResponseTxSignature';
+import { TransferSubmissionBody } from './TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from './TransferSubmissionBodyTransfer';
+import { TransferSubmissionBodyTransferOneOff } from './TransferSubmissionBodyTransferOneOff';
 import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission  , UndelegateSubmissionBodyUndelegateSubmissionMethodEnum   } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VegaKey } from './VegaKey';
@@ -124,6 +130,9 @@ let typeMap: {[index: string]: any} = {
     "TransactionResponseTx": TransactionResponseTx,
     "TransactionResponseTxFrom": TransactionResponseTxFrom,
     "TransactionResponseTxSignature": TransactionResponseTxSignature,
+    "TransferSubmissionBody": TransferSubmissionBody,
+    "TransferSubmissionBodyTransfer": TransferSubmissionBodyTransfer,
+    "TransferSubmissionBodyTransferOneOff": TransferSubmissionBodyTransferOneOff,
     "UndelegateSubmissionBody": UndelegateSubmissionBody,
     "UndelegateSubmissionBodyUndelegateSubmission": UndelegateSubmissionBodyUndelegateSubmission,
     "VegaKey": VegaKey,

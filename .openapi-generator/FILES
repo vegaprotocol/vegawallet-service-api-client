@@ -35,6 +35,9 @@ models/TransactionResponse.ts
 models/TransactionResponseTx.ts
 models/TransactionResponseTxFrom.ts
 models/TransactionResponseTxSignature.ts
+models/TransferSubmissionBody.ts
+models/TransferSubmissionBodyTransfer.ts
+models/TransferSubmissionBodyTransferOneOff.ts
 models/UndelegateSubmissionBody.ts
 models/UndelegateSubmissionBodyUndelegateSubmission.ts
 models/VegaKey.ts

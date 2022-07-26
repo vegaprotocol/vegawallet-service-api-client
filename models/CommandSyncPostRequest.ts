@@ -18,6 +18,8 @@ import { OrderCancellationBody } from './OrderCancellationBody';
 import { OrderCancellationBodyOrderCancellation } from './OrderCancellationBodyOrderCancellation';
 import { OrderSubmissionBody } from './OrderSubmissionBody';
 import { OrderSubmissionBodyOrderSubmission } from './OrderSubmissionBodyOrderSubmission';
+import { TransferSubmissionBody } from './TransferSubmissionBody';
+import { TransferSubmissionBodyTransfer } from './TransferSubmissionBodyTransfer';
 import { UndelegateSubmissionBody } from './UndelegateSubmissionBody';
 import { UndelegateSubmissionBodyUndelegateSubmission } from './UndelegateSubmissionBodyUndelegateSubmission';
 import { VoteSubmissionBody } from './VoteSubmissionBody';
@@ -36,6 +38,7 @@ export class CommandSyncPostRequest {
     'delegateSubmission': DelegateSubmissionBodyDelegateSubmission;
     'undelegateSubmission': UndelegateSubmissionBodyUndelegateSubmission;
     'orderAmendment': OrderAmendmentBodyOrderAmendment;
+    'transfer'?: TransferSubmissionBodyTransfer;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -92,6 +95,12 @@ export class CommandSyncPostRequest {
             "name": "orderAmendment",
             "baseName": "orderAmendment",
             "type": "OrderAmendmentBodyOrderAmendment",
+            "format": ""
+        },
+        {
+            "name": "transfer",
+            "baseName": "transfer",
+            "type": "TransferSubmissionBodyTransfer",
             "format": ""
         }    ];
 

@@ -400,6 +400,70 @@
           }
         }
       },
+      "TransferSubmissionBody": {
+        "type": "object",
+        "required": [
+          "pubKey",
+          "propagate",
+          "transfer"
+        ],
+        "properties": {
+          "pubKey": {
+            "nullable": false,
+            "type": "string"
+          },
+          "propagate": {
+            "type": "boolean",
+            "nullable": false
+          },
+          "transfer": {
+            "nullable": false,
+            "type": "object",
+            "required": [
+              "fromAccountType",
+              "toAccountType",
+              "to",
+              "asset",
+              "amount"
+            ],
+            "properties": {
+              "fromAccountType": {
+                "nullable": false,
+                "type": "string"
+              },
+              "toAccountType": {
+                "nullable": false,
+                "type": "string"
+              },
+              "to": {
+                "nullable": false,
+                "type": "string"
+              },
+              "amount": {
+                "nullable": true,
+                "type": "string"
+              },
+              "asset": {
+                "nullable": true,
+                "type": "string"
+              },
+              "oneOff": {
+                "nullable": false,
+                "type": "object",
+                "required": [
+                  "deliverOn"
+                ],
+                "properties": {
+                  "deliverOn": {
+                    "nullable": false,
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "GenericError": {
         "type": "object",
         "required": [
@@ -485,6 +549,93 @@
             }
           }
         }
+      },
+      "NetworkConfig": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "tokenExpiry": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "host": {
+            "type": "string"
+          },
+          "api": {
+            "type": "object",
+            "properties": {
+              "grpc": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "retries": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "rest": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "graphQl": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tokenDApp": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "localPort": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          "console": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "localPort": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -551,9 +702,22 @@
       "get": {
         "responses": {
           "200": {
-            "description": "TODO",
+            "description": "Success",
             "content": {
-              "application/json": {}
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "network"
+                  ],
+                  "properties": {
+                    "network": {
+                      "nullable": false,
+                      "$ref": "#/components/schemas/NetworkConfig"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -742,6 +906,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/OrderAmendmentBody"
+                  },
+                  {
+                    "$ref": "#/components/schemas/TransferSubmissionBody"
                   }
                 ]
               }
